@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>未完成后端任务明细 - FMS</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f7fa;color:#1a1f36;padding:20px}
+.header{text-align:center;padding:24px 0 16px}
+.header h1{font-size:24px;font-weight:800}
+.header .meta{color:#6b7280;font-size:13px;margin-top:6px}
+.breadcrumb{margin-bottom:16px;font-size:13px}
+.breadcrumb a{color:#3b82f6;text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.card{background:#fff;border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card .num{font-size:28px;font-weight:800;color:#4ade80}
+.card .label{font-size:12px;color:#9ca3af;margin-top:4px}
+.summary-bar{background:#fff;border-radius:12px;padding:16px 20px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;gap:24px;flex-wrap:wrap;font-size:14px}
+.summary-bar span{color:#6b7280}
+.summary-bar strong{color:#1a1f36}
+table{width:100%;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);border-collapse:collapse}
+th{background:#f8fafc;color:#475569;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px;padding:12px 10px;text-align:left;border-bottom:1px solid #e5e7eb}
+td{padding:10px;border-bottom:1px solid #f1f5f9;font-size:13px;color:#334155}
+tr:hover td{background:#f8fafc}
+.task-name{max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.status-badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600}
+.status-wait{background:#fef3c7;color:#92400e}
+.status-doing{background:#dbeafe;color:#1e40af}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.footer{text-align:center;padding:24px;color:#9ca3af;font-size:12px}
+@media(max-width:768px){.cards{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="breadcrumb"><a href="../index.html">← 返回报告中心</a> | <a href="../../index.html">项目总览</a></div>
+<div class="header">
+    <h1>⚙️ 未完成后端任务明细</h1>
+    <p class="meta">FMS | 数据更新：2026-06-17 14:19 | 12人参与 | 共43个未完成任务</p>
+</div>
+
+<div class="cards">
+    <div class="card"><div class="num">43</div><div class="label">未完成总计</div></div>
+    <div class="card"><div class="num">36</div><div class="label">待处理</div></div>
+    <div class="card"><div class="num">7</div><div class="label">进行中</div></div>
+    <div class="card"><div class="num">12</div><div class="label">参与人数</div></div>
+</div>
+
+<div class="summary-bar">
+    <span>👥 参与人员：<strong>何阳, 全秋霞 , 关珊, 冼泽华, 卢家朝, 徐伟, 李少君, 梁彬彬, 蔡能, 阙玉丽 等12人</strong></span>
+</div>
+
+<table>
+<thead><tr>
+    <th>任务名称</th><th>所属迭代</th><th>负责人</th><th>状态</th><th>优先级</th><th>截止日期</th><th>预估</th><th>已耗</th>
+</tr></thead>
+<tbody>
+<tr>
+            <td class="task-name" title="售后企业分账进件文件不存在问题排查">售后企业分账进件文件不存在问题排查</td>
+            <td>【2026】FMS-0630</td>
+            <td>关珊</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-17</td>
+            <td class="num">4.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="出来预收款单核销流水对应不正确的问题">出来预收款单核销流水对应不正确的问题</td>
+            <td>【2026】FMS-0630</td>
+            <td>关珊</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-18</td>
+            <td class="num">6.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="修改预收款单生成时字段缺失问题">修改预收款单生成时字段缺失问题</td>
+            <td>【2026】FMS-0630</td>
+            <td>关珊</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-17</td>
+            <td class="num">4.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="预收款单流程接入订单信息判断逻辑">预收款单流程接入订单信息判断逻辑</td>
+            <td>【2026】FMS-0630</td>
+            <td>关珊</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-17</td>
+            <td class="num">4.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="补充钱包银行支行">补充钱包银行支行</td>
+            <td>【2026】FMS-0630</td>
+            <td>蔡能</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-15</td>
+            <td class="num">0.1h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="调优财智通对话流-意图分析">调优财智通对话流-意图分析</td>
+            <td>【2026】FMS-0630</td>
+            <td>李少君</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-19</td>
+            <td class="num">8.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="历史数据补充（应收，预收，退款单）">历史数据补充（应收，预收，退款单）</td>
+            <td>【2026】FMS-0630</td>
+            <td>何阳</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>0</td>
+            <td>2026-06-30</td>
+            <td class="num">18.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="通用配置开发-账单创建退款单功能配置拦截">通用配置开发-账单创建退款单功能配置拦截</td>
+            <td>【2026】FMS-0630</td>
+            <td>何阳</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>0</td>
+            <td>2026-06-30</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="通用配置开发-账单创建预收单功能配置拦截">通用配置开发-账单创建预收单功能配置拦截</td>
+            <td>【2026】FMS-0630</td>
+            <td>何阳</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>0</td>
+            <td>2026-06-30</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="预收单详情-开票以及回款-发票接口查询">预收单详情-开票以及回款-发票接口查询</td>
+            <td>【2026】FMS-0630</td>
+            <td>梁彬彬</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-19</td>
+            <td class="num">4.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="应收单详情-开票以及回款-发票接口查询">应收单详情-开票以及回款-发票接口查询</td>
+            <td>【2026】FMS-0630</td>
+            <td>梁彬彬</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-19</td>
+            <td class="num">8.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="6月禅道传文件">6月禅道传文件</td>
+            <td>【2026】FMS-0630</td>
+            <td>阙玉丽</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">0.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="商用逆向订单查询功能开发">商用逆向订单查询功能开发</td>
+            <td>【2026】FMS-0630</td>
+            <td>徐伟</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="商用正向订单查询功能开发">商用正向订单查询功能开发</td>
+            <td>【2026】FMS-0630</td>
+            <td>徐伟</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="合同回款计划信息返回开发">合同回款计划信息返回开发</td>
+            <td>【2026】FMS-0630</td>
+            <td>徐伟</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="商用合同信息聚合查询开发">商用合同信息聚合查询开发</td>
+            <td>【2026】FMS-0630</td>
+            <td>徐伟</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">18.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="商用订单状态映射功能完善">商用订单状态映射功能完善</td>
+            <td>【2026】FMS-0630</td>
+            <td>徐伟</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="发货取消申请单查询支持">发货取消申请单查询支持</td>
+            <td>【2026】FMS-0630</td>
+            <td>徐伟</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="商用交易账户信息补充查询">商用交易账户信息补充查询</td>
+            <td>【2026】FMS-0630</td>
+            <td>徐伟</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="解决和定位财务反馈的问题">解决和定位财务反馈的问题</td>
+            <td>【2026】FMS-0630</td>
+            <td>梁彬彬</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">20.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="订单开票记录-未开票-显示ERP结果">订单开票记录-未开票-显示ERP结果</td>
+            <td>【2026】FMS-0630</td>
+            <td>梁彬彬</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-26</td>
+            <td class="num">8.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="ERP检验-快速队列-结果">ERP检验-快速队列-结果</td>
+            <td>【2026】FMS-0630</td>
+            <td>梁彬彬</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-25</td>
+            <td class="num">12.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="分销-页面功能-发票下载">分销-页面功能-发票下载</td>
+            <td>【2026】FMS-0630</td>
+            <td>梁彬彬</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-19</td>
+            <td class="num">8.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="个人分账进行修改错误提示信息">个人分账进行修改错误提示信息</td>
+            <td>【2026】FMS-0630</td>
+            <td>关珊</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-23</td>
+            <td class="num">4.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="个人分账进件显示历史银行卡">个人分账进件显示历史银行卡</td>
+            <td>【2026】FMS-0630</td>
+            <td>关珊</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-22</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="售后收付通账户开户异常处理">售后收付通账户开户异常处理</td>
+            <td>【2026】FMS-0630</td>
+            <td>关珊</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">20.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="汇票认款流水生成收款单定时任务">汇票认款流水生成收款单定时任务</td>
+            <td>【2026】FMS-0630</td>
+            <td>卢家朝</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>2</td>
+            <td>2026-06-30</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="第二季度项目考核资料准备">第二季度项目考核资料准备</td>
+            <td>【2026】FMS-0630</td>
+            <td>冼泽华</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>2</td>
+            <td>2026-06-30</td>
+            <td class="num">6.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="第二季度安全稽核资料准备">第二季度安全稽核资料准备</td>
+            <td>【2026】FMS-0630</td>
+            <td>冼泽华</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>2</td>
+            <td>2026-06-30</td>
+            <td class="num">6.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="项目立项报告总体架构设计、技术创新、功能创新、可行性分析等内容撰写">项目立项报告总体架构设计、技术创新、功能创新、可行性分析等内容撰写</td>
+            <td>【2026】FMS-0630</td>
+            <td>冼泽华</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>2</td>
+            <td>2026-06-30</td>
+            <td class="num">6.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="验证商用合同数据同步的正确性">验证商用合同数据同步的正确性</td>
+            <td>【2026】FMS-0630</td>
+            <td>冼泽华</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>2</td>
+            <td>2026-06-19</td>
+            <td class="num">6.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="协助商用配置Canal，将商用合同数据同步至FMS侧的MQ中">协助商用配置Canal，将商用合同数据同步至FMS侧的MQ中</td>
+            <td>【2026】FMS-0630</td>
+            <td>冼泽华</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>2</td>
+            <td>2026-06-19</td>
+            <td class="num">5.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="FMS侧商用合同数据表的定义及创建">FMS侧商用合同数据表的定义及创建</td>
+            <td>【2026】FMS-0630</td>
+            <td>冼泽华</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>2</td>
+            <td>2026-06-19</td>
+            <td class="num">4.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="与商用对接商用合同数据获取方式">与商用对接商用合同数据获取方式</td>
+            <td>【2026】FMS-0630</td>
+            <td>冼泽华</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>2</td>
+            <td>2026-06-19</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="分账进件SQL查询慢原因排查及给出解决方案">分账进件SQL查询慢原因排查及给出解决方案</td>
+            <td>【2026】FMS-0615</td>
+            <td>冼泽华</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>2</td>
+            <td>2026-06-15</td>
+            <td class="num">4.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="报批功能外部接口,推送，回推，历史客户，查询能力review和实现细节修改">报批功能外部接口,推送，回推，历史客户，查询能力review和实现细节修改</td>
+            <td>【2026】FMS-0630</td>
+            <td>魏小兵</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>1</td>
+            <td>2026-06-17</td>
+            <td class="num">18.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="售后服务费分账查询账单改为从数据库查询">售后服务费分账查询账单改为从数据库查询</td>
+            <td>【2026】FMS-0630</td>
+            <td>全秋霞 </td>
+            <td><span class="status-badge status-doing">进行中</span></td>
+            <td>3</td>
+            <td>2026-06-17</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="FMS0615版本投产支持">FMS0615版本投产支持</td>
+            <td>【2026】FMS-0630</td>
+            <td></td>
+            <td><span class="status-badge status-doing">进行中</span></td>
+            <td>3</td>
+            <td>2026-06-15</td>
+            <td class="num">18.0h</td>
+            <td class="num">12.5h</td>
+        </tr><tr>
+            <td class="task-name" title="调优财智通对话流-SQL组装节点">调优财智通对话流-SQL组装节点</td>
+            <td>【2026】FMS-0630</td>
+            <td>李少君</td>
+            <td><span class="status-badge status-doing">进行中</span></td>
+            <td>3</td>
+            <td>2026-06-18</td>
+            <td class="num">16.0h</td>
+            <td class="num">8.0h</td>
+        </tr><tr>
+            <td class="task-name" title="商用退补单逆向查询支持">商用退补单逆向查询支持</td>
+            <td>【2026】FMS-0630</td>
+            <td>徐伟</td>
+            <td><span class="status-badge status-doing">进行中</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="ERP下达校验-正常队列-增加结果">ERP下达校验-正常队列-增加结果</td>
+            <td>【2026】FMS-0630</td>
+            <td>梁彬彬</td>
+            <td><span class="status-badge status-doing">进行中</span></td>
+            <td>3</td>
+            <td>2026-06-22</td>
+            <td class="num">16.0h</td>
+            <td class="num">4.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【后端】配合测试排查解决uat环境数据同步分账进件单配置问题">【后端】配合测试排查解决uat环境数据同步分账进件单配置问题</td>
+            <td>【2026】FMS-0615</td>
+            <td>黎国威</td>
+            <td><span class="status-badge status-doing">进行中</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">6.0h</td>
+            <td class="num">2.0h</td>
+        </tr><tr>
+            <td class="task-name" title="处理多表关联聚合分页查询sql50万数据17s响应问题">处理多表关联聚合分页查询sql50万数据17s响应问题</td>
+            <td>【2026】FMS-0615</td>
+            <td>黎国威</td>
+            <td><span class="status-badge status-doing">进行中</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">12.0h</td>
+            <td class="num">7.0h</td>
+        </tr>
+</tbody>
+</table>
+
+<div class="footer">数据来源：禅道管理系统 | 生成时间：2026-06-17 14:19</div>
+</body>
+</html>
