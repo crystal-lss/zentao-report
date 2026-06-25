@@ -1,0 +1,197 @@
+{
+  "total": 13,
+  "by_person": {
+    "毛慧敏": [
+      {
+        "id": 297925,
+        "execution": "FMS-0630",
+        "name": "排查并解决售后逆向流程转账全部完成后退款账单未正常更新的问题",
+        "status": "wait",
+        "priority": "0",
+        "type": "a_dev4_control",
+        "deadline": "2026-06-24",
+        "overdue_days": 1,
+        "assignedTo": "毛慧敏",
+        "estimate": 5.0,
+        "consumed": 0.0,
+        "left": 5.0
+      },
+      {
+        "id": 297924,
+        "execution": "FMS-0630",
+        "name": "解决汇票审核的备注未正常回显的bug",
+        "status": "wait",
+        "priority": "0",
+        "type": "a_dev4_control",
+        "deadline": "2026-06-24",
+        "overdue_days": 1,
+        "assignedTo": "毛慧敏",
+        "estimate": 4.0,
+        "consumed": 0.0,
+        "left": 4.0
+      },
+      {
+        "id": 297923,
+        "execution": "FMS-0630",
+        "name": "承兑汇票认款的账户流水透传审核备注并保存",
+        "status": "wait",
+        "priority": "0",
+        "type": "a_dev4_control",
+        "deadline": "2026-06-22",
+        "overdue_days": 3,
+        "assignedTo": "毛慧敏",
+        "estimate": 9.0,
+        "consumed": 0.0,
+        "left": 9.0
+      }
+    ],
+    "关珊": [
+      {
+        "id": 297834,
+        "execution": "FMS-0630",
+        "name": "个人分账进行补充返回信息",
+        "status": "wait",
+        "priority": "3",
+        "type": "a_dev4_control",
+        "deadline": "2026-06-24",
+        "overdue_days": 1,
+        "assignedTo": "关珊",
+        "estimate": 3.0,
+        "consumed": 0.0,
+        "left": 3.0
+      },
+      {
+        "id": 297832,
+        "execution": "FMS-0630",
+        "name": "预收款单显示内容缺失问题处理",
+        "status": "wait",
+        "priority": "3",
+        "type": "a_dev4_control",
+        "deadline": "2026-06-24",
+        "overdue_days": 1,
+        "assignedTo": "关珊",
+        "estimate": 2.0,
+        "consumed": 0.0,
+        "left": 2.0
+      },
+      {
+        "id": 292506,
+        "execution": "FMS-0630",
+        "name": "个人分账进行修改错误提示信息",
+        "status": "wait",
+        "priority": "3",
+        "type": "a_dev4_control",
+        "deadline": "2026-06-24",
+        "overdue_days": 1,
+        "assignedTo": "关珊",
+        "estimate": 4.0,
+        "consumed": 0.0,
+        "left": 4.0
+      }
+    ],
+    "李少君": [
+      {
+        "id": 296893,
+        "execution": "FMS-0630",
+        "name": "参加基于AI开发体系标准建设的培训",
+        "status": "wait",
+        "priority": "3",
+        "type": "其他",
+        "deadline": "2026-06-23",
+        "overdue_days": 2,
+        "assignedTo": "李少君",
+        "estimate": 8.0,
+        "consumed": 0.0,
+        "left": 8.0
+      },
+      {
+        "id": 293651,
+        "execution": "FMS-0630",
+        "name": "调优财智通对话流-意图分析",
+        "status": "wait",
+        "priority": "3",
+        "type": "a_dev4_control",
+        "deadline": "2026-06-24",
+        "overdue_days": 1,
+        "assignedTo": "李少君",
+        "estimate": 8.0,
+        "consumed": 0.0,
+        "left": 8.0
+      }
+    ],
+    "温碧玉": [
+      {
+        "id": 297553,
+        "execution": "FMS-0630",
+        "name": "【测试】不同订单类型开票验证",
+        "status": "doing",
+        "priority": "3",
+        "type": "ae2_test",
+        "deadline": "2026-06-24",
+        "overdue_days": 1,
+        "assignedTo": "温碧玉",
+        "estimate": 2.0,
+        "consumed": 0.0,
+        "left": 2.0
+      },
+      {
+        "id": 293665,
+        "execution": "FMS-0630",
+        "name": "【测试】预收退款冲销验证",
+        "status": "doing",
+        "priority": "3",
+        "type": "ae2_test",
+        "deadline": "2026-06-24",
+        "overdue_days": 1,
+        "assignedTo": "温碧玉",
+        "estimate": 9.0,
+        "consumed": 0.0,
+        "left": 8.0
+      }
+    ],
+    "胡捷轩": [
+      {
+        "id": 278266,
+        "execution": "GAS-迁移",
+        "name": "【测试】生产环境系统迁移兼容性测试",
+        "status": "wait",
+        "priority": "1",
+        "type": "ae2_test",
+        "deadline": "2026-06-24",
+        "overdue_days": 1,
+        "assignedTo": "胡捷轩",
+        "estimate": 15.0,
+        "consumed": 0.0,
+        "left": 15.0
+      },
+      {
+        "id": 278265,
+        "execution": "GAS-迁移",
+        "name": "【测试】生产环境系统迁移功能回归测试",
+        "status": "doing",
+        "priority": "1",
+        "type": "ae2_test",
+        "deadline": "2026-06-24",
+        "overdue_days": 1,
+        "assignedTo": "胡捷轩",
+        "estimate": 20.0,
+        "consumed": 6.0,
+        "left": 20.0
+      },
+      {
+        "id": 278264,
+        "execution": "GAS-迁移",
+        "name": "【测试】测试环境系统迁移兼容性测试、常规安全测试",
+        "status": "doing",
+        "priority": "1",
+        "type": "ae2_test",
+        "deadline": "2026-06-24",
+        "overdue_days": 1,
+        "assignedTo": "胡捷轩",
+        "estimate": 20.0,
+        "consumed": 0.0,
+        "left": 20.0
+      }
+    ]
+  }
+}
