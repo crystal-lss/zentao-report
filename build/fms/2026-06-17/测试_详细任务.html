@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>未完成测试任务明细 - FMS</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f7fa;color:#1a1f36;padding:20px}
+.header{text-align:center;padding:24px 0 16px}
+.header h1{font-size:24px;font-weight:800}
+.header .meta{color:#6b7280;font-size:13px;margin-top:6px}
+.breadcrumb{margin-bottom:16px;font-size:13px}
+.breadcrumb a{color:#3b82f6;text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.card{background:#fff;border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card .num{font-size:28px;font-weight:800;color:#fbbf24}
+.card .label{font-size:12px;color:#9ca3af;margin-top:4px}
+.summary-bar{background:#fff;border-radius:12px;padding:16px 20px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;gap:24px;flex-wrap:wrap;font-size:14px}
+.summary-bar span{color:#6b7280}
+.summary-bar strong{color:#1a1f36}
+table{width:100%;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);border-collapse:collapse}
+th{background:#f8fafc;color:#475569;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px;padding:12px 10px;text-align:left;border-bottom:1px solid #e5e7eb}
+td{padding:10px;border-bottom:1px solid #f1f5f9;font-size:13px;color:#334155}
+tr:hover td{background:#f8fafc}
+.task-name{max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.status-badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600}
+.status-wait{background:#fef3c7;color:#92400e}
+.status-doing{background:#dbeafe;color:#1e40af}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.footer{text-align:center;padding:24px;color:#9ca3af;font-size:12px}
+@media(max-width:768px){.cards{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="breadcrumb"><a href="../index.html">← 返回报告中心</a> | <a href="../../index.html">项目总览</a></div>
+<div class="header">
+    <h1>🧪 未完成测试任务明细</h1>
+    <p class="meta">FMS | 数据更新：2026-06-17 14:19 | 5人参与 | 共31个未完成任务</p>
+</div>
+
+<div class="cards">
+    <div class="card"><div class="num">31</div><div class="label">未完成总计</div></div>
+    <div class="card"><div class="num">26</div><div class="label">待处理</div></div>
+    <div class="card"><div class="num">5</div><div class="label">进行中</div></div>
+    <div class="card"><div class="num">5</div><div class="label">参与人数</div></div>
+</div>
+
+<div class="summary-bar">
+    <span>👥 参与人员：<strong>吴志强, 唐远辉, 杜冬, 温碧玉, 蒋欣生</strong></span>
+</div>
+
+<table>
+<thead><tr>
+    <th>任务名称</th><th>所属迭代</th><th>负责人</th><th>状态</th><th>优先级</th><th>截止日期</th><th>预估</th><th>已耗</th>
+</tr></thead>
+<tbody>
+<tr>
+            <td class="task-name" title="【测试】售后安维费批量付款测试">【测试】售后安维费批量付款测试</td>
+            <td>【2026】FMS-0630</td>
+            <td>唐远辉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-17</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】应收单管理测试">【测试】应收单管理测试</td>
+            <td>【2026】FMS-0630</td>
+            <td>唐远辉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-27</td>
+            <td class="num">4.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】应收台单详情管理测试">【测试】应收台单详情管理测试</td>
+            <td>【2026】FMS-0630</td>
+            <td>唐远辉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-26</td>
+            <td class="num">8.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】应收反核销逻辑验证">【测试】应收反核销逻辑验证</td>
+            <td>【2026】FMS-0630</td>
+            <td>唐远辉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-25</td>
+            <td class="num">16.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】应收反核销发起前置校验">【测试】应收反核销发起前置校验</td>
+            <td>【2026】FMS-0630</td>
+            <td>唐远辉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-23</td>
+            <td class="num">8.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】应收核销逻辑验证">【测试】应收核销逻辑验证</td>
+            <td>【2026】FMS-0630</td>
+            <td>唐远辉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-22</td>
+            <td class="num">16.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】应收核销单生成前置校验">【测试】应收核销单生成前置校验</td>
+            <td>【2026】FMS-0630</td>
+            <td>唐远辉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-18</td>
+            <td class="num">8.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】预收核销逻辑验证">【测试】预收核销逻辑验证</td>
+            <td>【2026】FMS-0630</td>
+            <td>温碧玉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-25</td>
+            <td class="num">8.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】预收退款冲销验证">【测试】预收退款冲销验证</td>
+            <td>【2026】FMS-0630</td>
+            <td>温碧玉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-24</td>
+            <td class="num">8.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】核销单生成逻辑校验">【测试】核销单生成逻辑校验</td>
+            <td>【2026】FMS-0630</td>
+            <td>温碧玉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-23</td>
+            <td class="num">4.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】预收单生成逻辑校验">【测试】预收单生成逻辑校验</td>
+            <td>【2026】FMS-0630</td>
+            <td>温碧玉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-23</td>
+            <td class="num">4.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】预收单核销冲销冒烟测试">【测试】预收单核销冲销冒烟测试</td>
+            <td>【2026】FMS-0630</td>
+            <td>温碧玉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-22</td>
+            <td class="num">8.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】OMS发票下载定时任务逻辑验证">【测试】OMS发票下载定时任务逻辑验证</td>
+            <td>【2026】FMS-0630</td>
+            <td>温碧玉</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-18</td>
+            <td class="num">8.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="出口报价测算-投产验证">出口报价测算-投产验证</td>
+            <td>【2026】FMS-0630</td>
+            <td>吴志强</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">1.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="售后分账进件优化-投产验证">售后分账进件优化-投产验证</td>
+            <td>【2026】FMS-0630</td>
+            <td>吴志强</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">1.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="商用退款冲销场景链路测试">商用退款冲销场景链路测试</td>
+            <td>【2026】FMS-0630</td>
+            <td>吴志强</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="商用退款单场景链路测试">商用退款单场景链路测试</td>
+            <td>【2026】FMS-0630</td>
+            <td>吴志强</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-29</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="出口报价测算-uat验证以及qa页面功能验证">出口报价测算-uat验证以及qa页面功能验证</td>
+            <td>【2026】FMS-0630</td>
+            <td>吴志强</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-26</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="售后分账进件优化-uat环境验证">售后分账进件优化-uat环境验证</td>
+            <td>【2026】FMS-0630</td>
+            <td>吴志强</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-25</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="售后分账进件优化-进件优化功能测试">售后分账进件优化-进件优化功能测试</td>
+            <td>【2026】FMS-0630</td>
+            <td>吴志强</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-24</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="售后分账进件优化-银行卡优化功能测试">售后分账进件优化-银行卡优化功能测试</td>
+            <td>【2026】FMS-0630</td>
+            <td>吴志强</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-23</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="出口报价测算-公式核对验证">出口报价测算-公式核对验证</td>
+            <td>【2026】FMS-0630</td>
+            <td>吴志强</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-22</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="llm-接口自动化自愈方案开发及调试">llm-接口自动化自愈方案开发及调试</td>
+            <td>【2026】FMS-0630</td>
+            <td>吴志强</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-18</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="llm-接口自动化自愈方案设计及开发">llm-接口自动化自愈方案设计及开发</td>
+            <td>【2026】FMS-0630</td>
+            <td>吴志强</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-17</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】标准信用账户自动还款_非商用原本功能回归验证">【测试】标准信用账户自动还款_非商用原本功能回归验证</td>
+            <td>【2026】FMS-0630</td>
+            <td>杜冬</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-26</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】标准信用账户自动还款_UAT验证测试">【测试】标准信用账户自动还款_UAT验证测试</td>
+            <td>【2026】FMS-0630</td>
+            <td>杜冬</td>
+            <td><span class="status-badge status-wait">待处理</span></td>
+            <td>3</td>
+            <td>2026-06-26</td>
+            <td class="num">9.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】企业收付通进件上送好收银分账材料问题协助分析和测试">【测试】企业收付通进件上送好收银分账材料问题协助分析和测试</td>
+            <td>【2026】FMS-0630</td>
+            <td>杜冬</td>
+            <td><span class="status-badge status-doing">进行中</span></td>
+            <td>3</td>
+            <td>2026-06-17</td>
+            <td class="num">4.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】标准信用账户自动还款_标准信用账户自动核销测试">【测试】标准信用账户自动还款_标准信用账户自动核销测试</td>
+            <td>【2026】FMS-0630</td>
+            <td>杜冬</td>
+            <td><span class="status-badge status-doing">进行中</span></td>
+            <td>3</td>
+            <td>2026-06-26</td>
+            <td class="num">5.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】项目合同信用账户应收核销、反核销逻辑冒烟测试">【测试】项目合同信用账户应收核销、反核销逻辑冒烟测试</td>
+            <td>【2026】FMS-0630</td>
+            <td>唐远辉</td>
+            <td><span class="status-badge status-doing">进行中</span></td>
+            <td>3</td>
+            <td>2026-06-20</td>
+            <td class="num">8.0h</td>
+            <td class="num">4.0h</td>
+        </tr><tr>
+            <td class="task-name" title="【测试】发票下载定时任务逻辑验证">【测试】发票下载定时任务逻辑验证</td>
+            <td>【2026】FMS-0630</td>
+            <td>温碧玉</td>
+            <td><span class="status-badge status-doing">进行中</span></td>
+            <td>3</td>
+            <td>2026-06-17</td>
+            <td class="num">8.0h</td>
+            <td class="num">0.0h</td>
+        </tr><tr>
+            <td class="task-name" title="销售订单与扣款报表多维分析扩展-UAT测试">销售订单与扣款报表多维分析扩展-UAT测试</td>
+            <td>【2026】FMS-0615</td>
+            <td>蒋欣生</td>
+            <td><span class="status-badge status-doing">进行中</span></td>
+            <td>3</td>
+            <td>2026-06-30</td>
+            <td class="num">16.0h</td>
+            <td class="num">8.0h</td>
+        </tr>
+</tbody>
+</table>
+
+<div class="footer">数据来源：禅道管理系统 | 生成时间：2026-06-17 14:19</div>
+</body>
+</html>
