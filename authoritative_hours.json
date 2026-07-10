@@ -1,0 +1,233 @@
+{
+  "冼泽华": {
+    "total_hours": 16,
+    "task_count": 7,
+    "estimated_hours": 28,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "魏小兵": {
+    "total_hours": 36.0,
+    "task_count": 6,
+    "estimated_hours": 53.5,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "连朔": {
+    "total_hours": 53,
+    "task_count": 8,
+    "estimated_hours": 55,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "唐远辉": {
+    "total_hours": 45.5,
+    "task_count": 7,
+    "estimated_hours": 45.5,
+    "dept": "软件测试室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "蒋欣生": {
+    "total_hours": 20.0,
+    "task_count": 5,
+    "estimated_hours": 20.0,
+    "dept": "软件测试室",
+    "project": "海外售后 GAS"
+  },
+  "杜冬": {
+    "total_hours": 39.5,
+    "task_count": 15,
+    "estimated_hours": 44.5,
+    "dept": "软件测试室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "毛慧敏": {
+    "total_hours": 74,
+    "task_count": 11,
+    "estimated_hours": 95,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "汪越": {
+    "total_hours": 58.5,
+    "task_count": 13,
+    "estimated_hours": 58.5,
+    "dept": "软件测试室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "陈国团": {
+    "total_hours": 37,
+    "task_count": 11,
+    "estimated_hours": 37,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "全秋霞 ": {
+    "total_hours": 39.5,
+    "task_count": 11,
+    "estimated_hours": 44.5,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "许瑶": {
+    "total_hours": 68,
+    "task_count": 17,
+    "estimated_hours": 68,
+    "dept": "视觉设计室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "何曦宇": {
+    "total_hours": 16,
+    "task_count": 5,
+    "estimated_hours": 15,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "温碧玉": {
+    "total_hours": 21.5,
+    "task_count": 9,
+    "estimated_hours": 23.5,
+    "dept": "软件测试室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "袁世豪": {
+    "total_hours": 38.0,
+    "task_count": 9,
+    "estimated_hours": 37.0,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "杨琳": {
+    "total_hours": 43.5,
+    "task_count": 12,
+    "estimated_hours": 37.5,
+    "dept": "视觉设计室",
+    "project": "海外售后 GAS"
+  },
+  "李德文": {
+    "total_hours": 64,
+    "task_count": 13,
+    "estimated_hours": 112,
+    "dept": "视觉设计室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "蔡泽平": {
+    "total_hours": 24,
+    "task_count": 3,
+    "estimated_hours": 22,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "肖永龙": {
+    "total_hours": 6.5,
+    "task_count": 5,
+    "estimated_hours": 6.5,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "李少君": {
+    "total_hours": 23.5,
+    "task_count": 7,
+    "estimated_hours": 35.5,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "徐伟": {
+    "total_hours": 3,
+    "task_count": 2,
+    "estimated_hours": 3,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "梁彬彬": {
+    "total_hours": 3,
+    "task_count": 2,
+    "estimated_hours": 3,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "苏若豪": {
+    "total_hours": 36,
+    "task_count": 3,
+    "estimated_hours": 43,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "黎国威": {
+    "total_hours": 59,
+    "task_count": 9,
+    "estimated_hours": 70,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "张兴龙": {
+    "total_hours": 34,
+    "task_count": 2,
+    "estimated_hours": 38,
+    "dept": "开发七室",
+    "project": "海外售后 GAS"
+  },
+  "胡捷轩": {
+    "total_hours": 54,
+    "task_count": 3,
+    "estimated_hours": 50,
+    "dept": "软件测试室",
+    "project": "海外售后 GAS"
+  },
+  "徐中然": {
+    "total_hours": 0,
+    "task_count": 0,
+    "estimated_hours": 0,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "吴志强": {
+    "total_hours": 0,
+    "task_count": 0,
+    "estimated_hours": 0,
+    "dept": "软件测试室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "卢家朝": {
+    "total_hours": 0,
+    "task_count": 0,
+    "estimated_hours": 0,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "关珊": {
+    "total_hours": 0,
+    "task_count": 0,
+    "estimated_hours": 0,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "刘钊志": {
+    "total_hours": 0,
+    "task_count": 0,
+    "estimated_hours": 0,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "舒恺": {
+    "total_hours": 0,
+    "task_count": 0,
+    "estimated_hours": 0,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "阙玉丽": {
+    "total_hours": 0,
+    "task_count": 0,
+    "estimated_hours": 0,
+    "dept": "开发七室",
+    "project": "销售财务中台管理系统 FMS"
+  },
+  "贺桢": {
+    "total_hours": 0,
+    "task_count": 0,
+    "estimated_hours": 0,
+    "dept": "开发七室",
+    "project": "海外售后 GAS"
+  }
+}

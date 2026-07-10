@@ -1,0 +1,2405 @@
+<!DOCTYPE html><html class="theme-default" display="false" lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="renderer" content="webkit"><title>任务完成汇总表 - 禅道</title><link rel="icon" href="/favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /><script id="configJS">;(function(){window.config = {"webRoot":"\/","debug":false,"appName":"","cookieLife":30,"requestType":"PATH_INFO","requestFix":"-","moduleVar":"m","methodVar":"f","viewVar":"t","version":"biz12.5","vision":"rnd","defaultView":"html","themeRoot":"\/theme\/","currentModule":"pivot","currentMethod":"preview","rawModule":"pivot","rawMethod":"preview","clientLang":"zh-cn","requiredFields":"","router":"\/index.php","save":"保存","expand":"展开全部","runMode":"","timeout":30000,"pingInterval":"","onlybody":"no","clientCache":true,"morphUpdate":true,"account":"260298","zin":true,"maxUploadSize":"100M"};}());</script><link id="zuiCSS" rel="stylesheet" href="/js/zui3/zui.zentao.css?v=biz12.5" /><link id="zuiTheme" rel="stylesheet" href="/js/zui3/themes/default.css?v=biz12.5" /><script id="zuiJS" src="/js/zui3/zui.zentao.js?v=biz12.5"></script><script>;(function(){$.setLibRoot("\/js\/zui3\/");}());</script><script>;(function(){window.zin = {};}());</script><script src="/js/zui3/zin.js?v=biz12.5"></script></head><body><style class="zin-page-css" data-id="pivot-preview">.up {color: red; padding-right: 2px;}
+.down {color: green; padding-right: 2px;}
+.zero {color: #66CD00;}
+.u50 {color: #ED1C24;}
+.u30 {color: #F37021;}
+.u10 {color: #FAA61A;}
+.u0 {color: #FFCB05;}
+.d0 {color: #76B043;}
+.d20 {color: #33A52E;}
+
+.input-group .form-group-wrapper { width: 70% !important;}
+.max-w-32 {max-width: 8rem;}
+.label.status-clarify, .label.status-draft {--tw-ring-color: #8166ee;}
+.label.status-cancel, .label.status-canceled, .label.status-investigate {--tw-ring-color: #838a9d;}
+.label.status-canceled, .label.status-closed, .label.status-testtask .label.status-done {--tw-ring-color: #9ea3b0;}
+.label.status-blocked, .label.status-hangup, .label.status-pause, .label.status-suspended {--tw-ring-color: #b89664;}
+.label.status-noreview, .label.status-reviewing, .label.status-wait .label.status-testcase {--tw-ring-color: #18a6fd;}
+.label.status-active .label.status-risk, .label.status-changed, .label.status-changing, .label.status-fail {--tw-ring-color: #fb2b2b;}
+.label.status-active, .label.status-asked, .label.status-normal, .label.status-unconfirmed, .label.status-wait {--tw-ring-color: #313c52;}
+.label.status-active .label.status-issue, .label.status-checking, .label.status-commenting, .label.status-confirmed, .label.status-doing {--tw-ring-color: #ff6f42;}
+.label.status-checked, .label.status-done, .label.status-pass, .label.status-replied, .label.status-resolved, .label.status-success {--tw-ring-color: #0dbb7d;}
+.module-menu {max-height: calc(100vh - 79px); display: flex; flex-direction: column; min-height: 32px; --menu-selected-bg: none;}
+.module-menu header a:hover > .icon {color: var(--color-primary-600) !important;}
+.module-menu .tree-item * {white-space: nowrap;}
+.module-menu .tree-item .item-content {color: var(--color-gray-700)}
+.module-menu .tree-item > .selected .item-content {color: var(--color-fore)}
+.module-menu > .tree.has-nested-items {padding-left: calc(2 * var(--space))}
+.has-module-menu-header #mainMenu {padding-left: 180px;}
+.module-menu-header.is-fixed {position: absolute; left: 0; top: -44px; width: 160px; height: 32px; border: 1px solid var(--color-border); justify-content: center; padding: 0 24px; border-right: 0;}
+.module-menu-header.is-fixed::before,
+.module-menu-header.is-fixed::after {content: ''; position: absolute; top: 0; right: -12px; width: 0; height: 0; border-style: solid; border-color: transparent transparent transparent var(--color-border); border-width: 15px 0 15px 12px;}
+.module-menu-header.is-fixed::after {right: -11px; border-color: transparent transparent transparent var(--color-canvas);}
+.has-module-menu-header.is-sidebar-left-collapsed .module-menu-header.is-fixed {left: var(--gutter-width)}
+.module-menu-header.is-fixed .module-title {font-size: var(--font-size-base);}
+.module-menu-header.is-fixed > .btn-close {position: absolute; right: 0; font-weight: normal;}
+.module-menu-header.is-fixed > .btn-close:not(:hover) {opacity: .5;}
+.sidebar > .module-menu-header.is-fixed {display: flex!important;}
+.sidebar-left > .module-menu {margin-right: -8px}
+.sidebar-left.is-expanded > .module-menu ~ .sidebar-gutter {margin-left: 4px}
+.sidebar-right.is-expanded > .module-menu ~ .sidebar-gutter {margin-right: 4px}
+.is-expanded > .module-menu ~ .sidebar-gutter > .gutter-toggle {opacity: 0}
+.has-module-menu-header .sidebar-left {transition-property: width;}
+.has-module-menu-header .module-menu {max-height: calc(100vh - 105px); }
+.has-module-menu-header .module-menu > .tree {padding-top: 8px; padding-bottom: 8px;}
+#pick-pop-admin-menu {width: 145px!important;}
+#pick-pop-admin-menu .dropmenu-list {padding: 8px;}
+#pick-pop-admin-menu .dropmenu-item + .dropmenu-item {margin-top: 4px}
+#pick-pop-admin-menu .dropmenu-item.active {background-color: unset;}
+#pick-pop-admin-menu .dropmenu-item:hover {color: rgba(var(--color-primary-500-rgb),var(--tw-text-opacity)); background-color: rgba(var(--color-primary-50-rgb),var(--tw-bg-opacity));}
+.dropmenu-item .item-content .label {flex-shrink: 0;}
+#navbar .nav[z-use-sortable] > li:hover {cursor: grab !important;}
+#navbar .nav[z-use-sortable] > li > a:hover {cursor: grab !important;}
+#navbar .nav li.nav-divider.divider {border: none; width: 1px; background: currentColor; margin: 0; padding-left: var(--nav-divider-margin); padding-right: var(--nav-divider-margin); box-sizing: content-box; background-clip: content-box;}
+#mainNavbar {padding-left: 1rem; padding-right: 1rem;}
+#mainNavbar .main-navbar-left {position: absolute; z-index: 2;}
+#mainNavbar .main-navbar-left #switcher {position: relative; top: 5px; border: 1px solid rgb(var(--color-primary-500-rgb));}
+#mainNavbar .main-navbar-left #switcher > .dropmenu-btn {background: #FFF;}
+#mainNavbar .main-navbar-left #switcher > .dropmenu-btn:before {background: unset;}
+#mainNavbar .main-navbar-left #switcher:after, #mainNavbar .main-navbar-left #switcher:before {position: absolute; display: block; width: 0; height: 0; content: ' '; border-style: solid; border-width: 17px 0 17px 8px; top: -1px;}
+#mainNavbar .main-navbar-left #switcher:before {border-color: transparent transparent transparent rgb(var(--color-primary-500-rgb)); right: -8px;}
+#mainNavbar .main-navbar-left #switcher:after {border-color: transparent transparent transparent #FFF; right: -7px; border-radius: 2px;}
+#mainNavbar .main-navbar-left #switcher .icon-angle-right {display: none;}
+#mainNavbar .main-navbar-left #switcher .caret {color: rgb(var(--color-link-hover-rgb));}
+#mainNavbar .main-navbar-left #switcher .text {color: rgb(var(--color-primary-500-rgb));}
+#mainNavbar .nav[z-use-sortable] > li:hover {cursor: grab !important;}
+#mainNavbar .nav[z-use-sortable] > li > a:hover {cursor: grab !important;}</style><header id="header"><div class="container"><div id="heading"><div class="toolbar"><a class="toolbar-item ghost font-brand btn btn-default" title="BI" href="/screen-browse.html"><i class="icon icon-statistic"></i><span class="text">BI</span></a></div><div id="dropmenu" zui-create zui-create-dropmenu="{&quot;id&quot;:&quot;dropmenu-menu&quot;,&quot;fetcher&quot;:&quot;\/dimension-ajaxGetDropMenu-1-pivot-preview-.html&quot;,&quot;text&quot;:&quot;宏观管理维度&quot;,&quot;defaultValue&quot;:1,&quot;cache&quot;:true}" data-fetcher="/dimension-ajaxGetDropMenu-1-pivot-preview-.html" data-text="宏观管理维度" data-default-value="1" data-cache="true"></div></div><nav id="navbar"><menu class="nav"><li class="nav-item item"><a href="/screen-browse.html" target data-id="screen" hidden="false"><span class="text">大屏</span></a></li><li class="nav-item item"><a class="active" href="/pivot-preview.html" target data-id="pivot" hidden="false"><span class="text">透视表</span></a></li><li class="nav-item item"><a href="/chart-preview.html" target data-id="chart" hidden="false"><span class="text">图表</span></a></li><li class="nav-divider item divider"></li><li class="nav-item item"><a href="/dataview-browse.html" target data-id="dataview" hidden="false"><span class="text">数据表</span></a></li></menu></nav><div id="toolbar"><div class="btn-group mr-2" id="pageToolbar"></div><div class="toolbar gap-4"><button class="text-primary ring-primary ring-opacity-30 bg-inherit btn square size-sm" data-toggle="dropdown" zui-toggle-dropdown="{&quot;placement&quot;:&quot;bottom&quot;,&quot;strategy&quot;:&quot;fixed&quot;,&quot;arrow&quot;:true,&quot;menu&quot;:{&quot;items&quot;:[{&quot;icon&quot;:&quot;todo&quot;,&quot;text&quot;:&quot;待办&quot;,&quot;url&quot;:&quot;\/todo-create.html&quot;},{&quot;icon&quot;:&quot;time&quot;,&quot;text&quot;:&quot;日志&quot;,&quot;url&quot;:&quot;\/effort-batchCreate.html&quot;},{&quot;type&quot;:&quot;divider&quot;},{&quot;icon&quot;:&quot;bug&quot;,&quot;text&quot;:&quot;Bug&quot;,&quot;url&quot;:&quot;\/bug-create-613--from=global.html&quot;},{&quot;icon&quot;:&quot;lightbulb&quot;,&quot;text&quot;:&quot;研发需求&quot;,&quot;url&quot;:&quot;\/story-create-613-0-0-0-0-0-0-0-from=global.html&quot;},{&quot;icon&quot;:&quot;check-sign&quot;,&quot;text&quot;:&quot;任务&quot;,&quot;url&quot;:&quot;\/task-create-0-0-0-0-0-from=global.html&quot;},{&quot;icon&quot;:&quot;sitemap&quot;,&quot;text&quot;:&quot;用例&quot;,&quot;url&quot;:&quot;\/testcase-create-613--0--0-0-from=global.html&quot;},{&quot;icon&quot;:&quot;doc&quot;,&quot;text&quot;:&quot;文档&quot;,&quot;innerClass&quot;:null,&quot;data-toggle&quot;:&quot;modal&quot;,&quot;url&quot;:&quot;\/doc-selectLibType.html&quot;},{&quot;type&quot;:&quot;divider&quot;},{&quot;icon&quot;:&quot;run&quot;,&quot;text&quot;:&quot;执行&quot;,&quot;url&quot;:&quot;\/execution-create-0-0-0-0-no-0-from=global.html&quot;},{&quot;type&quot;:&quot;divider&quot;},{&quot;icon&quot;:&quot;cube&quot;,&quot;text&quot;:&quot;空间&quot;,&quot;innerClass&quot;:null,&quot;data-toggle&quot;:&quot;modal&quot;,&quot;data-width&quot;:&quot;75%&quot;,&quot;url&quot;:&quot;\/kanban-createSpace.html?onlybody=yes&quot;},{&quot;icon&quot;:&quot;kanban&quot;,&quot;text&quot;:&quot;看板&quot;,&quot;innerClass&quot;:null,&quot;data-toggle&quot;:&quot;modal&quot;,&quot;data-width&quot;:&quot;75%&quot;,&quot;url&quot;:&quot;\/kanban-create.html?onlybody=yes&quot;}],&quot;id&quot;:&quot;quickAddMenu&quot;,&quot;style&quot;:{&quot;color&quot;:&quot;var(--color-fore)&quot;}}}" id="quickAddMenu-toggle" type="button"><i class="icon icon-plus icon-lg"></i></button><button class="text-primary bg-inherit ring-primary ring-opacity-40 btn square size-sm" id="messageBar" data-on="click" data-call="fetchMessage" data-fetcher="/message-ajaxGetDropMenu.html" data-toggle="dropdown" zui-toggle-dropdown="{&quot;placement&quot;:&quot;bottom-end&quot;,&quot;arrow&quot;:true,&quot;offset&quot;:{&quot;alignmentAxis&quot;:-50}}" type="button"><i class="icon icon-bell icon-lg"></i></button><menu class="menu dropdown-menu not-hide-menu messageDropdownBox" style="padding: 0;"><div id="dropdownMessageMenu"></div></menu><a class="w-7 h-7 cursor-pointer" caret="false" data-toggle="dropdown" zui-toggle-dropdown="{&quot;placement&quot;:&quot;bottom-end&quot;,&quot;strategy&quot;:&quot;fixed&quot;,&quot;arrow&quot;:true,&quot;menu&quot;:{&quot;items&quot;:[{&quot;url&quot;:&quot;\/my-profile.html?onlybody=yes&quot;,&quot;leadingClass&quot;:&quot;row items-center gap-2 px-2 py-1 text-inherit&quot;,&quot;icon&quot;:&quot; hidden&quot;,&quot;title&quot;:&quot;黎思斯&quot;,&quot;titleClass&quot;:&quot;text-lg&quot;,&quot;subtitle&quot;:&quot;项目经理&quot;,&quot;innerClass&quot;:null,&quot;data-toggle&quot;:&quot;modal&quot;,&quot;data-size&quot;:700,&quot;data-id&quot;:&quot;profile&quot;,&quot;leading&quot;:{&quot;html&quot;:&quot;&lt;div class=\&quot;avatar rounded-full has-text has-text-2\&quot; style=\&quot;background: hsl(54, 40%, 60%); color: #ffffff; width: 32px; height: 32px; font-size: 16px;\&quot;&gt;&lt;div class=\&quot;avatar-text\&quot; style=\&quot;transform: scale(0.8); white-space: nowrap;\&quot; data-actualSize=\&quot;32\&quot;&gt;思斯&lt;\/div&gt;&lt;\/div&gt;&quot;,&quot;className&quot;:&quot;center mr-1&quot;}},{&quot;type&quot;:&quot;divider&quot;},{&quot;url&quot;:&quot;\/my-profile.html?onlybody=yes&quot;,&quot;icon&quot;:&quot;account&quot;,&quot;text&quot;:&quot;个人档案&quot;,&quot;innerClass&quot;:null,&quot;data-toggle&quot;:&quot;modal&quot;,&quot;data-size&quot;:700,&quot;data-id&quot;:&quot;profile&quot;},{&quot;url&quot;:&quot;\/my-changepassword.html?onlybody=yes&quot;,&quot;icon&quot;:&quot;cog-outline&quot;,&quot;text&quot;:&quot;修改密码&quot;,&quot;innerClass&quot;:null,&quot;data-toggle&quot;:&quot;modal&quot;,&quot;data-size&quot;:&quot;sm&quot;},{&quot;type&quot;:&quot;divider&quot;},{&quot;url&quot;:&quot;\/tutorial-start.html&quot;,&quot;icon&quot;:&quot;guide&quot;,&quot;text&quot;:&quot;使用教程&quot;,&quot;class&quot;:&quot;800&quot;,&quot;outerClass&quot;:&quot;user-tutorial&quot;,&quot;data-width&quot;:700,&quot;data-class-name&quot;:&quot;modal-inverse tutorial-start&quot;,&quot;data-headerless&quot;:true,&quot;data-backdrop&quot;:true,&quot;data-keyboard&quot;:true,&quot;innerClass&quot;:null,&quot;data-toggle&quot;:&quot;modal&quot;},{&quot;text&quot;:&quot;帮助&quot;,&quot;icon&quot;:&quot;help&quot;,&quot;items&quot;:[{&quot;text&quot;:&quot;手册&quot;,&quot;url&quot;:&quot;https:\/\/www.zentao.net\/book\/zentaopms\/38.html?fullScreen=zentao&amp;theme=default&quot;,&quot;attrs&quot;:{&quot;data-app&quot;:&quot;help&quot;}},{&quot;text&quot;:&quot;修改日志&quot;,&quot;url&quot;:&quot;\/misc-changeLog.html&quot;,&quot;data-toggle&quot;:&quot;modal&quot;,&quot;innerClass&quot;:null}]},{&quot;type&quot;:&quot;divider&quot;},{&quot;url&quot;:&quot;\/my-preference-false.html?onlybody=yes&quot;,&quot;icon&quot;:&quot;controls&quot;,&quot;text&quot;:&quot;个性化设置&quot;,&quot;data-width&quot;:700,&quot;innerClass&quot;:null,&quot;data-toggle&quot;:&quot;modal&quot;},{&quot;text&quot;:&quot;主题&quot;,&quot;icon&quot;:&quot;theme&quot;,&quot;key&quot;:&quot;theme&quot;,&quot;items&quot;:[{&quot;text&quot;:&quot;禅道蓝&quot;,&quot;data-value&quot;:&quot;default&quot;,&quot;url&quot;:&quot;javascript:selectTheme(\&quot;default\&quot;)&quot;,&quot;active&quot;:true},{&quot;text&quot;:&quot;青春蓝&quot;,&quot;data-value&quot;:&quot;blue&quot;,&quot;url&quot;:&quot;javascript:selectTheme(\&quot;blue\&quot;)&quot;,&quot;active&quot;:false},{&quot;text&quot;:&quot;叶兰绿&quot;,&quot;data-value&quot;:&quot;green&quot;,&quot;url&quot;:&quot;javascript:selectTheme(\&quot;green\&quot;)&quot;,&quot;active&quot;:false},{&quot;text&quot;:&quot;赤诚红&quot;,&quot;data-value&quot;:&quot;red&quot;,&quot;url&quot;:&quot;javascript:selectTheme(\&quot;red\&quot;)&quot;,&quot;active&quot;:false},{&quot;text&quot;:&quot;萱萱紫&quot;,&quot;data-value&quot;:&quot;purple&quot;,&quot;url&quot;:&quot;javascript:selectTheme(\&quot;purple\&quot;)&quot;,&quot;active&quot;:false}]},{&quot;text&quot;:&quot;Language&quot;,&quot;icon&quot;:&quot;lang&quot;,&quot;items&quot;:[{&quot;text&quot;:&quot;简体&quot;,&quot;data-value&quot;:&quot;zh-cn&quot;,&quot;url&quot;:&quot;javascript:selectLang(\&quot;zh-cn\&quot;)&quot;,&quot;active&quot;:true},{&quot;text&quot;:&quot;繁體&quot;,&quot;data-value&quot;:&quot;zh-tw&quot;,&quot;url&quot;:&quot;javascript:selectLang(\&quot;zh-tw\&quot;)&quot;,&quot;active&quot;:false},{&quot;text&quot;:&quot;English&quot;,&quot;data-value&quot;:&quot;en&quot;,&quot;url&quot;:&quot;javascript:selectLang(\&quot;en\&quot;)&quot;,&quot;active&quot;:false}]},{&quot;type&quot;:&quot;divider&quot;},{&quot;text&quot;:&quot;大桌面&quot;,&quot;icon&quot;:&quot;desktop&quot;,&quot;items&quot;:[{&quot;text&quot;:&quot;下载大桌面&quot;,&quot;url&quot;:&quot;\/misc-downloadClient.html&quot;,&quot;data-toggle&quot;:&quot;modal&quot;,&quot;innerClass&quot;:null},{&quot;text&quot;:&quot;大桌面使用说明&quot;,&quot;url&quot;:&quot;https:\/\/www.zentao.net\/book\/zentaopmshelp\/302.html?fullScreen=zentao&amp;theme=default#4&quot;,&quot;attrs&quot;:{&quot;data-app&quot;:&quot;help&quot;}}]},{&quot;icon&quot;:&quot;mobile&quot;,&quot;text&quot;:&quot;下载移动端&quot;,&quot;items&quot;:[{&quot;content&quot;:{&quot;html&quot;:&quot;&lt;img src='\/static\/images\/app-qrcode.png' \/&gt;&quot;,&quot;style&quot;:&quot;width: 100px; heigth: 100px;&quot;}}]},{&quot;text&quot;:&quot;关于禅道&quot;,&quot;icon&quot;:&quot;about&quot;,&quot;url&quot;:&quot;\/misc-about.html&quot;,&quot;data-toggle&quot;:&quot;modal&quot;,&quot;innerClass&quot;:null},{&quot;type&quot;:&quot;html&quot;,&quot;className&quot;:&quot;menu-item&quot;,&quot;html&quot;:&quot;&lt;a href='https:\/\/api.zentao.net\/goto.php?item=aiux' class='link-aiux listitem item-inner menu-item-inner state' target='_blank'&gt;&lt;i class='icon icon-aiux item-icon'&gt;&lt;\/i&gt;&lt;div class='item-content text'&gt;艾体验设计&lt;\/div&gt;&lt;\/a&gt;&quot;},{&quot;type&quot;:&quot;divider&quot;},{&quot;text&quot;:&quot;签退&quot;,&quot;url&quot;:&quot;javascript:$.apps.logout()&quot;,&quot;icon&quot;:&quot;exit&quot;}],&quot;id&quot;:&quot;userMenu&quot;,&quot;style&quot;:{&quot;color&quot;:&quot;var(--color-fore)&quot;}}}" id="userMenu-toggle"><div class="avatar rounded-full has-text has-text-2" style="background: hsl(54, 40%, 60%); color: #ffffff; width: 28px; height: 28px; font-size: 14px;"><div class="avatar-text" style="transform: scale(0.7); white-space: nowrap;" data-actualSize="28">思斯</div></div></a></div></div></div></header><div id="main"><div class="container" id="mainContainer"><div id="mainMenu"><div id="featureBar"><menu class="nav nav-compact nav-feature"><li class="nav-item item"><a href="/pivot-preview-1-16438.html" data-id="16438" data-load="" data-app="" title="产品"><span class="text text-ellipsis max-w-32">产品</span></a></li><li class="nav-item item"><a href="/pivot-preview-1-16439.html" data-id="16439" data-load="" data-app="" title="项目"><span class="text text-ellipsis max-w-32">项目</span></a></li><li class="nav-item item"><a href="/pivot-preview-1-16440.html" data-id="16440" data-load="" data-app="" title="测试"><span class="text text-ellipsis max-w-32">测试</span></a></li><li class="nav-item item"><a class="active" href="/pivot-preview-1-16441.html" data-id="16441" data-load="" data-app="" title="组织"><span class="text text-ellipsis max-w-32">组织</span><span class="label size-sm canvas ring-0 rounded-md">677</span></a></li><li class="nav-item item"><a href="/pivot-preview-1-16442.html" data-id="16442" data-load="" data-app="" title="DevOps"><span class="text text-ellipsis max-w-32">DevOps</span></a></li><li class="nav-item nav-dropdown item"><a data-id="more" title="更多" data-toggle="dropdown" zui-toggle-dropdown="{&quot;menu&quot;:{&quot;items&quot;:[{&quot;text&quot;:&quot;未分组&quot;,&quot;active&quot;:false,&quot;attrs&quot;:{&quot;data-id&quot;:16489,&quot;data-load&quot;:&quot;&quot;,&quot;data-target&quot;:null,&quot;data-app&quot;:&quot;&quot;,&quot;data-success&quot;:&quot;() =&gt; zui.updateSearchForm('pivot')&quot;},&quot;url&quot;:&quot;\/pivot-preview-1-16489.html&quot;}]}}"><span class="text text-ellipsis max-w-32">更多</span><span class="caret-down"></span></a></li></menu></div><div class="toolbar" id="actionBar"><button class="toolbar-item ghost btn" data-target="#export" data-toggle="modal" data-size="sm" type="button"><i class="icon icon-export"></i><span class="text">导出</span></button><a class="toolbar-item primary btn btn-default" href="/pivot-browse.html"><span class="text">进入设计</span></a></div></div><div class="row has-sidebar-left" id="mainContent"><div class="sidebar" zui-create zui-create-sidebar="{&quot;side&quot;:&quot;left&quot;,&quot;toggleBtn&quot;:true,&quot;preserve&quot;:&quot;pivot-preview&quot;,&quot;parent&quot;:&quot;#mainContainer&quot;,&quot;maxWidth&quot;:360,&quot;minWidth&quot;:160,&quot;width&quot;:240,&quot;dragToResize&quot;:true}"><div class="module-menu shadow ring rounded bg-canvas col relative" id="moduleMenu"><div class="bg-canvas my-3 mx-5 text-xl font-semibold text-ellipsis h-7 flex-none">组织</div><menu class="tree tree-lines col flex-auto scrollbar-hover overflow-y-auto overflow-x-hidden pr-2 pl-4" zui-create zui-create-tree="{&quot;defaultNestedShow&quot;:true,&quot;hover&quot;:true,&quot;lines&quot;:true,&quot;preserve&quot;:&quot;pivot-preview&quot;,&quot;activeKey&quot;:&quot;worksummary&quot;,&quot;items&quot;:[{&quot;key&quot;:&quot;workload&quot;,&quot;text&quot;:&quot;员工负载表&quot;,&quot;hint&quot;:&quot;员工负载表&quot;,&quot;url&quot;:&quot;\/pivot-preview-1-16441-workload.html&quot;,&quot;titleAttrs&quot;:{&quot;data-app&quot;:&quot;bi&quot;},&quot;contentClass&quot;:&quot;overflow-x-hidden&quot;},{&quot;key&quot;:&quot;worksummary&quot;,&quot;text&quot;:&quot;任务完成汇总表&quot;,&quot;hint&quot;:&quot;任务完成汇总表&quot;,&quot;url&quot;:&quot;\/pivot-preview-1-16441-worksummary.html&quot;,&quot;titleAttrs&quot;:{&quot;data-app&quot;:&quot;bi&quot;},&quot;contentClass&quot;:&quot;overflow-x-hidden&quot;,&quot;selected&quot;:true},{&quot;key&quot;:&quot;workAssignSummary&quot;,&quot;text&quot;:&quot;任务指派汇总表&quot;,&quot;hint&quot;:&quot;任务指派汇总表&quot;,&quot;url&quot;:&quot;\/pivot-preview-1-16441-workAssignSummary.html&quot;,&quot;titleAttrs&quot;:{&quot;data-app&quot;:&quot;bi&quot;},&quot;contentClass&quot;:&quot;overflow-x-hidden&quot;},{&quot;key&quot;:&quot;bugsummary&quot;,&quot;text&quot;:&quot;Bug解决汇总表&quot;,&quot;hint&quot;:&quot;Bug解决汇总表&quot;,&quot;url&quot;:&quot;\/pivot-preview-1-16441-bugsummary.html&quot;,&quot;titleAttrs&quot;:{&quot;data-app&quot;:&quot;bi&quot;},&quot;contentClass&quot;:&quot;overflow-x-hidden&quot;},{&quot;key&quot;:&quot;bugAssignSummary&quot;,&quot;text&quot;:&quot;Bug指派汇总表&quot;,&quot;hint&quot;:&quot;Bug指派汇总表&quot;,&quot;url&quot;:&quot;\/pivot-preview-1-16441-bugAssignSummary.html&quot;,&quot;titleAttrs&quot;:{&quot;data-app&quot;:&quot;bi&quot;},&quot;contentClass&quot;:&quot;overflow-x-hidden&quot;}]}"></menu><div class="row justify-end p-1 flex-none"><div></div><button class="btn square ghost size-sm" title="收起" type="button" zui-init="$element.off('.zin.on');$element.on('click.zin.on',function(event,args){
+const $this = $(this);
+const target = event.target;
+$this.closest(&quot;.sidebar&quot;).sidebar(&quot;toggle&quot;);;
+});" id='zin_pivot_preview_h_55'><i class="icon icon-menu-arrow-left text-gray"></i></button></div></div></div><div class="main-content-cell" id="mainContentCell"><script src="/js/sheetjs/xlsx.full.min.js?v=biz12.5"></script><script src="/js/filesaver/filesaver.js?v=biz12.5"></script><div class="modal" id="export"><div class="modal-dialog shadow"><div class="modal-content"><div class="modal-header"><div class="modal-title">导出</div></div><div class="modal-actions"><button class="btn square ghost" type="button" data-dismiss="modal"><span class="close"></span></button></div><div class="modal-body"><div class="py-2 ml-8 mr-10 flex items-center"><div class="text-right pr-4" style="width: 20%;">文件名称</div><div style="width: 80%;"><input class="form-control" type="text" autocomplete="off" name="fileName" placeholder="未命名" value="任务完成汇总表" id="fileName" /></div></div><div class="py-2 ml-8 mr-10 flex items-center"><div class="text-right pr-4" style="width: 20%;">导出格式</div><div style="width: 80%;"><div class="form-group-wrapper picker-box" id="zin_pivot_preview_picker_fileType" zui-create zui-create-picker="{&quot;multiple&quot;:false,&quot;pinyinKeys&quot;:true,&quot;maxItemsCount&quot;:200,&quot;name&quot;:&quot;fileType&quot;,&quot;items&quot;:[{&quot;text&quot;:&quot;xlsx&quot;,&quot;value&quot;:&quot;xlsx&quot;,&quot;keys&quot;:&quot;xlsx x&quot;},{&quot;text&quot;:&quot;xls&quot;,&quot;value&quot;:&quot;xls&quot;,&quot;keys&quot;:&quot;xls x&quot;},{&quot;text&quot;:&quot;html&quot;,&quot;value&quot;:&quot;html&quot;,&quot;keys&quot;:&quot;html h&quot;},{&quot;text&quot;:&quot;mht&quot;,&quot;value&quot;:&quot;mht&quot;,&quot;keys&quot;:&quot;mht m&quot;}],&quot;required&quot;:true,&quot;emptyValue&quot;:&quot;&quot;,&quot;defaultValue&quot;:&quot;xlsx&quot;}"></div></div></div></div><div class="modal-footer flex justify-center"><button class="btn primary" type="button" id="export-data-button">保存</button></div></div></div></div><div class="flex col gap-4 w-full" id="pivotContent"><style>
+.priWidth{width:30px !important; padding: 8px !important;}
+.userWidth{width:70px !important;}
+.dateWidth{width:80px !important; padding: 8px !important;}
+.delayWidth{width:80px !important;}
+.estWidth{width:65px !important; padding: 8px !important}
+.taskConsumedWidth{width:85px !important;}
+.taskTotalWidth{width:65px !important; padding: 8px !important;}
+.projectConsumedWidth{width:80px !important; padding: 8px !important;}
+.userConsumedWidth{width:80px !important; padding: 8px !important;}
+</style>
+<div class='flex bg-canvas p-2 gap-3' id='conditions'>
+  <div class='input-group w-1/4'>
+    <span class='input-group-addon'>部门</span>
+    <select name='dept' id='dept' class='form-control chosen' onchange='changeParams()'>
+<option value='0' selected='selected' title='/' data-keys='/ '>/</option>
+<option value='177' title='/营销数智化中心' data-keys='/yingxiaoshuzhihuazhongxin yxszhzx'>/营销数智化中心</option>
+<option value='131' title='/营销数智化中心/技术部' data-keys='/yingxiaoshuzhihuazhongxin/jishubu yxszhzxjsb'>/营销数智化中心/技术部</option>
+<option value='100' title='/营销数智化中心/技术部/开发一室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifayishi yxszhzxjsbkfys'>/营销数智化中心/技术部/开发一室</option>
+<option value='104' title='/营销数智化中心/技术部/开发一室/网批项目组' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifayishi/wangpixiangmuzu yxszhzxjsbkfyswpxmz'>/营销数智化中心/技术部/开发一室/网批项目组</option>
+<option value='51' title='/营销数智化中心/技术部/开发一室/终端管理团队' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifayishi/zhongduanguanlituandui yxszhzxjsbkfyszdgltd'>/营销数智化中心/技术部/开发一室/终端管理团队</option>
+<option value='101' title='/营销数智化中心/技术部/开发二室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifaershi yxszhzxjsbkfes'>/营销数智化中心/技术部/开发二室</option>
+<option value='105' title='/营销数智化中心/技术部/开发二室/OMS项目组' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifaershi/omsxiangmuzu yxszhzxjsbkfesoxmz'>/营销数智化中心/技术部/开发二室/OMS项目组</option>
+<option value='27' title='/营销数智化中心/技术部/开发三室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifasanshi yxszhzxjsbkfss'>/营销数智化中心/技术部/开发三室</option>
+<option value='98' title='/营销数智化中心/技术部/开发三室/云售后团队' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifasanshi/yunshouhoutuandui yxszhzxjsbkfssyshtd'>/营销数智化中心/技术部/开发三室/云售后团队</option>
+<option value='25' title='/营销数智化中心/技术部/开发四室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifasishi yxszhzxjsbkfss'>/营销数智化中心/技术部/开发四室</option>
+<option value='136' title='/营销数智化中心/技术部/开发四室/项目管理室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifasishi/xiangmuguanlishi yxszhzxjsbkfssxmgls'>/营销数智化中心/技术部/开发四室/项目管理室</option>
+<option value='45' title='/营销数智化中心/技术部/开发四室/项目管理室/项目管理组' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifasishi/xiangmuguanlishi/xiangmuguanlizu yxszhzxjsbkfssxmglsxmglz'>/营销数智化中心/技术部/开发四室/项目管理室/项目管理组</option>
+<option value='121' title='/营销数智化中心/技术部/开发四室/项目管理室/信息安全组' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifasishi/xiangmuguanlishi/xinxianquanzu yxszhzxjsbkfssxmglsxxaqz'>/营销数智化中心/技术部/开发四室/项目管理室/信息安全组</option>
+<option value='89' title='/营销数智化中心/技术部/开发五室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifawushi yxszhzxjsbkfws'>/营销数智化中心/技术部/开发五室</option>
+<option value='92' title='/营销数智化中心/技术部/开发五室/董店项目组' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifawushi/dongdianxiangmuzu yxszhzxjsbkfwsddxmz'>/营销数智化中心/技术部/开发五室/董店项目组</option>
+<option value='112' title='/营销数智化中心/技术部/开发六室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifaliushi yxszhzxjsbkfls'>/营销数智化中心/技术部/开发六室</option>
+<option value='113' title='/营销数智化中心/技术部/开发六室/TMS项目组' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifaliushi/tmsxiangmuzu yxszhzxjsbkflstxmz'>/营销数智化中心/技术部/开发六室/TMS项目组</option>
+<option value='114' title='/营销数智化中心/技术部/开发六室/WMS项目组' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifaliushi/wmsxiangmuzu yxszhzxjsbkflswxmz'>/营销数智化中心/技术部/开发六室/WMS项目组</option>
+<option value='124' title='/营销数智化中心/技术部/开发七室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifaqishi yxszhzxjsbkfqs'>/营销数智化中心/技术部/开发七室</option>
+<option value='56' title='/营销数智化中心/技术部/开发七室/海外售后团队' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifaqishi/haiwaishouhoutuandui yxszhzxjsbkfqshwshtd'>/营销数智化中心/技术部/开发七室/海外售后团队</option>
+<option value='99' title='/营销数智化中心/技术部/开发七室/财务团队' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifaqishi/caiwutuandui yxszhzxjsbkfqscwtd'>/营销数智化中心/技术部/开发七室/财务团队</option>
+<option value='125' title='/营销数智化中心/技术部/开发八室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifabashi yxszhzxjsbkfbs'>/营销数智化中心/技术部/开发八室</option>
+<option value='122' title='/营销数智化中心/技术部/开发八室/CRM项目组' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/kaifabashi/crmxiangmuzu yxszhzxjsbkfbscxmz'>/营销数智化中心/技术部/开发八室/CRM项目组</option>
+<option value='129' title='/营销数智化中心/技术部/软件测试室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/ruanjianceshishi yxszhzxjsbrjcss'>/营销数智化中心/技术部/软件测试室</option>
+<option value='93' title='/营销数智化中心/技术部/数据开发室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/shujukaifashi yxszhzxjsbsjkfs'>/营销数智化中心/技术部/数据开发室</option>
+<option value='116' title='/营销数智化中心/技术部/数据开发室/数据中台' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/shujukaifashi/shujuzhongtai yxszhzxjsbsjkfssjzt'>/营销数智化中心/技术部/数据开发室/数据中台</option>
+<option value='117' title='/营销数智化中心/技术部/数据开发室/BI可视化' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/shujukaifashi/bikeshihua yxszhzxjsbsjkfsbksh'>/营销数智化中心/技术部/数据开发室/BI可视化</option>
+<option value='126' title='/营销数智化中心/技术部/软件应用室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/ruanjianyingyongshi yxszhzxjsbrjyys'>/营销数智化中心/技术部/软件应用室</option>
+<option value='31' title='/营销数智化中心/技术部/视觉设计室' data-keys='/yingxiaoshuzhihuazhongxin/jishubu/shijueshejishi yxszhzxjsbsjsjs'>/营销数智化中心/技术部/视觉设计室</option>
+<option value='21' title='/营销数智化中心/综合部' data-keys='/yingxiaoshuzhihuazhongxin/zonghebu yxszhzxzhb'>/营销数智化中心/综合部</option>
+<option value='120' title='/营销数智化中心/综合部/综合保障组' data-keys='/yingxiaoshuzhihuazhongxin/zonghebu/zonghebaozhangzu yxszhzxzhbzhbzz'>/营销数智化中心/综合部/综合保障组</option>
+<option value='132' title='/营销数智化中心/运营部' data-keys='/yingxiaoshuzhihuazhongxin/yunyingbu yxszhzxyyb'>/营销数智化中心/运营部</option>
+<option value='74' title='/营销数智化中心/运营部/平台运营一科' data-keys='/yingxiaoshuzhihuazhongxin/yunyingbu/pingtaiyunyingyike yxszhzxyybptyyyk'>/营销数智化中心/运营部/平台运营一科</option>
+<option value='75' title='/营销数智化中心/运营部/平台运营二科' data-keys='/yingxiaoshuzhihuazhongxin/yunyingbu/pingtaiyunyingerke yxszhzxyybptyyek'>/营销数智化中心/运营部/平台运营二科</option>
+<option value='76' title='/营销数智化中心/运营部/供应链运营科' data-keys='/yingxiaoshuzhihuazhongxin/yunyingbu/gongyinglianyunyingke yxszhzxyybgylyyk'>/营销数智化中心/运营部/供应链运营科</option>
+<option value='133' title='/营销数智化中心/运营部/客服管理科' data-keys='/yingxiaoshuzhihuazhongxin/yunyingbu/kefuguanlike yxszhzxyybkfglk'>/营销数智化中心/运营部/客服管理科</option>
+<option value='134' title='/营销数智化中心/运营部/直播运营科' data-keys='/yingxiaoshuzhihuazhongxin/yunyingbu/zhiboyunyingke yxszhzxyybzbyyk'>/营销数智化中心/运营部/直播运营科</option>
+<option value='135' title='/营销数智化中心/运营部/新媒体运营科' data-keys='/yingxiaoshuzhihuazhongxin/yunyingbu/xinmeitiyunyingke yxszhzxyybxmtyyk'>/营销数智化中心/运营部/新媒体运营科</option>
+<option value='32' title='/营销数智化中心/财务部' data-keys='/yingxiaoshuzhihuazhongxin/caiwubu yxszhzxcwb'>/营销数智化中心/财务部</option>
+<option value='44' title='/营销数智化中心/财务部/商城财务科' data-keys='/yingxiaoshuzhihuazhongxin/caiwubu/shangchengcaiwuke yxszhzxcwbsccwk'>/营销数智化中心/财务部/商城财务科</option>
+<option value='24' title='/营销数智化中心/高层管理' data-keys='/yingxiaoshuzhihuazhongxin/gaocengguanli yxszhzxgcgl'>/营销数智化中心/高层管理</option>
+<option value='178' title='/大数据中心' data-keys='/dashujuzhongxin dsjzx'>/大数据中心</option>
+<option value='138' title='/大数据中心/大数据_基础平台室' data-keys='/dashujuzhongxin/dashuju_jichupingtaishi dsjzxdsj_jcpts'>/大数据中心/大数据_基础平台室</option>
+<option value='144' title='/大数据中心/大数据_基础平台室/大数据_开发一组' data-keys='/dashujuzhongxin/dashuju_jichupingtaishi/dashuju_kaifayizu dsjzxdsj_jcptsdsj_kfyz'>/大数据中心/大数据_基础平台室/大数据_开发一组</option>
+<option value='145' title='/大数据中心/大数据_基础平台室/大数据_开发二组' data-keys='/dashujuzhongxin/dashuju_jichupingtaishi/dashuju_kaifaerzu dsjzxdsj_jcptsdsj_kfez'>/大数据中心/大数据_基础平台室/大数据_开发二组</option>
+<option value='143' title='/大数据中心/大数据_产品策划室' data-keys='/dashujuzhongxin/dashuju_chanpincehuashi dsjzxdsj_cpchs'>/大数据中心/大数据_产品策划室</option>
+<option value='148' title='/大数据中心/大数据_调度室' data-keys='/dashujuzhongxin/dashuju_diaodushi dsjzxdsj_dds'>/大数据中心/大数据_调度室</option>
+<option value='149' title='/大数据中心/大数据_联云科技综合部' data-keys='/dashujuzhongxin/dashuju_lianyunkejizonghebu dsjzxdsj_lykjzhb'>/大数据中心/大数据_联云科技综合部</option>
+<option value='142' title='/大数据中心/大数据_开发一室' data-keys='/dashujuzhongxin/dashuju_kaifayishi dsjzxdsj_kfys'>/大数据中心/大数据_开发一室</option>
+<option value='163' title='/大数据中心/大数据_开发一室/大数据_开发一组' data-keys='/dashujuzhongxin/dashuju_kaifayishi/dashuju_kaifayizu dsjzxdsj_kfysdsj_kfyz'>/大数据中心/大数据_开发一室/大数据_开发一组</option>
+<option value='164' title='/大数据中心/大数据_开发一室/大数据_开发二组' data-keys='/dashujuzhongxin/dashuju_kaifayishi/dashuju_kaifaerzu dsjzxdsj_kfysdsj_kfez'>/大数据中心/大数据_开发一室/大数据_开发二组</option>
+<option value='165' title='/大数据中心/大数据_开发一室/大数据_产品组' data-keys='/dashujuzhongxin/dashuju_kaifayishi/dashuju_chanpinzu dsjzxdsj_kfysdsj_cpz'>/大数据中心/大数据_开发一室/大数据_产品组</option>
+<option value='175' title='/大数据中心/大数据_开发一室/大数据_测试组' data-keys='/dashujuzhongxin/dashuju_kaifayishi/dashuju_ceshizu dsjzxdsj_kfysdsj_csz'>/大数据中心/大数据_开发一室/大数据_测试组</option>
+<option value='186' title='/大数据中心/大数据_开发一室/大数据_外包组' data-keys='/dashujuzhongxin/dashuju_kaifayishi/dashuju_waibaozu dsjzxdsj_kfysdsj_wbz'>/大数据中心/大数据_开发一室/大数据_外包组</option>
+<option value='141' title='/大数据中心/大数据_开发二室' data-keys='/dashujuzhongxin/dashuju_kaifaershi dsjzxdsj_kfes'>/大数据中心/大数据_开发二室</option>
+<option value='158' title='/大数据中心/大数据_开发二室/大数据_开发一组' data-keys='/dashujuzhongxin/dashuju_kaifaershi/dashuju_kaifayizu dsjzxdsj_kfesdsj_kfyz'>/大数据中心/大数据_开发二室/大数据_开发一组</option>
+<option value='159' title='/大数据中心/大数据_开发二室/大数据_开发二组' data-keys='/dashujuzhongxin/dashuju_kaifaershi/dashuju_kaifaerzu dsjzxdsj_kfesdsj_kfez'>/大数据中心/大数据_开发二室/大数据_开发二组</option>
+<option value='160' title='/大数据中心/大数据_开发二室/大数据_大数据开发组' data-keys='/dashujuzhongxin/dashuju_kaifaershi/dashuju_dashujukaifazu dsjzxdsj_kfesdsj_dsjkfz'>/大数据中心/大数据_开发二室/大数据_大数据开发组</option>
+<option value='161' title='/大数据中心/大数据_开发二室/大数据_开发三组' data-keys='/dashujuzhongxin/dashuju_kaifaershi/dashuju_kaifasanzu dsjzxdsj_kfesdsj_kfsz'>/大数据中心/大数据_开发二室/大数据_开发三组</option>
+<option value='162' title='/大数据中心/大数据_开发二室/大数据_测试组' data-keys='/dashujuzhongxin/dashuju_kaifaershi/dashuju_ceshizu dsjzxdsj_kfesdsj_csz'>/大数据中心/大数据_开发二室/大数据_测试组</option>
+<option value='140' title='/大数据中心/大数据_开发三室' data-keys='/dashujuzhongxin/dashuju_kaifasanshi dsjzxdsj_kfss'>/大数据中心/大数据_开发三室</option>
+<option value='166' title='/大数据中心/大数据_开发三室/大数据_开发一组' data-keys='/dashujuzhongxin/dashuju_kaifasanshi/dashuju_kaifayizu dsjzxdsj_kfssdsj_kfyz'>/大数据中心/大数据_开发三室/大数据_开发一组</option>
+<option value='167' title='/大数据中心/大数据_开发三室/大数据_开发二组' data-keys='/dashujuzhongxin/dashuju_kaifasanshi/dashuju_kaifaerzu dsjzxdsj_kfssdsj_kfez'>/大数据中心/大数据_开发三室/大数据_开发二组</option>
+<option value='139' title='/大数据中心/大数据_开发四室' data-keys='/dashujuzhongxin/dashuju_kaifasishi dsjzxdsj_kfss'>/大数据中心/大数据_开发四室</option>
+<option value='154' title='/大数据中心/大数据_开发四室/大数据_开发一组' data-keys='/dashujuzhongxin/dashuju_kaifasishi/dashuju_kaifayizu dsjzxdsj_kfssdsj_kfyz'>/大数据中心/大数据_开发四室/大数据_开发一组</option>
+<option value='155' title='/大数据中心/大数据_开发四室/大数据_开发二组' data-keys='/dashujuzhongxin/dashuju_kaifasishi/dashuju_kaifaerzu dsjzxdsj_kfssdsj_kfez'>/大数据中心/大数据_开发四室/大数据_开发二组</option>
+<option value='156' title='/大数据中心/大数据_开发四室/大数据_开发三组' data-keys='/dashujuzhongxin/dashuju_kaifasishi/dashuju_kaifasanzu dsjzxdsj_kfssdsj_kfsz'>/大数据中心/大数据_开发四室/大数据_开发三组</option>
+<option value='150' title='/大数据中心/大数据_开发五室' data-keys='/dashujuzhongxin/dashuju_kaifawushi dsjzxdsj_kfws'>/大数据中心/大数据_开发五室</option>
+<option value='168' title='/大数据中心/大数据_开发五室/大数据_开发一组' data-keys='/dashujuzhongxin/dashuju_kaifawushi/dashuju_kaifayizu dsjzxdsj_kfwsdsj_kfyz'>/大数据中心/大数据_开发五室/大数据_开发一组</option>
+<option value='169' title='/大数据中心/大数据_开发五室/大数据_开发二组' data-keys='/dashujuzhongxin/dashuju_kaifawushi/dashuju_kaifaerzu dsjzxdsj_kfwsdsj_kfez'>/大数据中心/大数据_开发五室/大数据_开发二组</option>
+<option value='170' title='/大数据中心/大数据_开发五室/大数据_开发三组' data-keys='/dashujuzhongxin/dashuju_kaifawushi/dashuju_kaifasanzu dsjzxdsj_kfwsdsj_kfsz'>/大数据中心/大数据_开发五室/大数据_开发三组</option>
+<option value='151' title='/大数据中心/大数据_开发六室' data-keys='/dashujuzhongxin/dashuju_kaifaliushi dsjzxdsj_kfls'>/大数据中心/大数据_开发六室</option>
+<option value='171' title='/大数据中心/大数据_开发六室/大数据_开发一组' data-keys='/dashujuzhongxin/dashuju_kaifaliushi/dashuju_kaifayizu dsjzxdsj_kflsdsj_kfyz'>/大数据中心/大数据_开发六室/大数据_开发一组</option>
+<option value='172' title='/大数据中心/大数据_开发六室/大数据_开发二组' data-keys='/dashujuzhongxin/dashuju_kaifaliushi/dashuju_kaifaerzu dsjzxdsj_kflsdsj_kfez'>/大数据中心/大数据_开发六室/大数据_开发二组</option>
+<option value='173' title='/大数据中心/大数据_开发六室/大数据_开发三组' data-keys='/dashujuzhongxin/dashuju_kaifaliushi/dashuju_kaifasanzu dsjzxdsj_kflsdsj_kfsz'>/大数据中心/大数据_开发六室/大数据_开发三组</option>
+<option value='174' title='/大数据中心/大数据_开发六室/大数据_开发四组' data-keys='/dashujuzhongxin/dashuju_kaifaliushi/dashuju_kaifasizu dsjzxdsj_kflsdsj_kfsz'>/大数据中心/大数据_开发六室/大数据_开发四组</option>
+<option value='147' title='/大数据中心/大数据_联云科技质量控制部' data-keys='/dashujuzhongxin/dashuju_lianyunkejizhiliangkongzhibu dsjzxdsj_lykjzlkzb'>/大数据中心/大数据_联云科技质量控制部</option>
+<option value='146' title='/大数据中心/大数据_联云科技新零售部' data-keys='/dashujuzhongxin/dashuju_lianyunkejixinlingshoubu dsjzxdsj_lykjxlsb'>/大数据中心/大数据_联云科技新零售部</option>
+<option value='152' title='/大数据中心/大数据_联云科技新零售部/大数据_开发一室' data-keys='/dashujuzhongxin/dashuju_lianyunkejixinlingshoubu/dashuju_kaifayishi dsjzxdsj_lykjxlsbdsj_kfys'>/大数据中心/大数据_联云科技新零售部/大数据_开发一室</option>
+<option value='153' title='/大数据中心/大数据_联云科技新零售部/大数据_开发二室' data-keys='/dashujuzhongxin/dashuju_lianyunkejixinlingshoubu/dashuju_kaifaershi dsjzxdsj_lykjxlsbdsj_kfes'>/大数据中心/大数据_联云科技新零售部/大数据_开发二室</option>
+<option value='157' title='/大数据中心/大数据_联云科技新零售部/大数据_开发五室' data-keys='/dashujuzhongxin/dashuju_lianyunkejixinlingshoubu/dashuju_kaifawushi dsjzxdsj_lykjxlsbdsj_kfws'>/大数据中心/大数据_联云科技新零售部/大数据_开发五室</option>
+<option value='176' title='/大数据中心/大数据_开发七室' data-keys='/dashujuzhongxin/dashuju_kaifaqishi dsjzxdsj_kfqs'>/大数据中心/大数据_开发七室</option>
+<option value='180' title='/大数据中心/大数据_开发七室/开发一组' data-keys='/dashujuzhongxin/dashuju_kaifaqishi/kaifayizu dsjzxdsj_kfqskfyz'>/大数据中心/大数据_开发七室/开发一组</option>
+<option value='181' title='/大数据中心/大数据_开发七室/开发二组' data-keys='/dashujuzhongxin/dashuju_kaifaqishi/kaifaerzu dsjzxdsj_kfqskfez'>/大数据中心/大数据_开发七室/开发二组</option>
+<option value='179' title='/大数据中心/大数据_开发八室' data-keys='/dashujuzhongxin/dashuju_kaifabashi dsjzxdsj_kfbs'>/大数据中心/大数据_开发八室</option>
+<option value='182' title='/大数据中心/大数据_开发八室/开发一组' data-keys='/dashujuzhongxin/dashuju_kaifabashi/kaifayizu dsjzxdsj_kfbskfyz'>/大数据中心/大数据_开发八室/开发一组</option>
+<option value='183' title='/大数据中心/大数据_开发八室/开发二组' data-keys='/dashujuzhongxin/dashuju_kaifabashi/kaifaerzu dsjzxdsj_kfbskfez'>/大数据中心/大数据_开发八室/开发二组</option>
+<option value='130' title='/外部审计' data-keys='/waibushenji wbsj'>/外部审计</option>
+<option value='127' title='/离职人员' data-keys='/lizhirenyuan lzry'>/离职人员</option>
+<option value='71' title='/离职人员/联云质控部(旧)' data-keys='/lizhirenyuan/lianyunzhikongbu(jiu) lzrylyzkbj'>/离职人员/联云质控部(旧)</option>
+<option value='72' title='/离职人员/联云质控部(旧)/测试一科' data-keys='/lizhirenyuan/lianyunzhikongbu(jiu)/ceshiyike lzrylyzkbjcsyk'>/离职人员/联云质控部(旧)/测试一科</option>
+<option value='73' title='/离职人员/联云质控部(旧)/测试二科' data-keys='/lizhirenyuan/lianyunzhikongbu(jiu)/ceshierke lzrylyzkbjcsek'>/离职人员/联云质控部(旧)/测试二科</option>
+<option value='123' title='/格力电器子部门' data-keys='/gelidianqizibumen gldqzbm'>/格力电器子部门</option>
+<option value='185' title='/格力电器子部门/成品库（TMS）' data-keys='/gelidianqizibumen/chengpinku（tms） gldqzbmcpkt'>/格力电器子部门/成品库（TMS）</option>
+<option value='187' title='/格力电器子部门/计算机中心' data-keys='/gelidianqizibumen/jisuanjizhongxin gldqzbmjsjzx'>/格力电器子部门/计算机中心</option>
+<option value='188' title='/格力电器子部门/科管部' data-keys='/gelidianqizibumen/keguanbu gldqzbmkgb'>/格力电器子部门/科管部</option>
+<option value='189' title='/格力电器子部门/工艺部' data-keys='/gelidianqizibumen/gongyibu gldqzbmgyb'>/格力电器子部门/工艺部</option>
+<option value='137' title='/金蝶外包' data-keys='/jindiewaibao jdwb'>/金蝶外包</option>
+<option value='184' title='/数字渠道管理' data-keys='/shuziqudaoguanli szqdgl'>/数字渠道管理</option>
+</select>
+  </div>
+  <div class='input-group w-1/2'>
+    <span class='input-group-addon'>任务完成时间</span>
+    <div id='beginPicker' zui-create zui-create-datepicker="{defaultValue: '2026-05-01', onChange: (e) => changeParams()}" ></div>
+    <span class='input-group-addon'>至</span>
+    <div id='endPicker' zui-create zui-create-datepicker="{defaultValue: '2026-06-16', onChange: (e) => changeParams()}"></div>
+  </div>
+</div>
+<div class='cell'>
+  <div class='panel rounded ring-0 bg-canvas'>
+    <div class="panel-heading">
+      <div class="panel-title">任务完成汇总表</div>
+    </div>
+    <div class='panel-body pt-0'>
+      <div class='table-responsive' data-ride='table'>
+        <table class='table table-condensed table-striped table-bordered table-fixed' id="worksummary">
+          <thead>
+            <tr class='colhead text-center bg-canvas'>
+              <th class="userWidth border">完成者</th>
+                            <th class="border w-20">所属项目</th>
+                            <th class="border w-20">所属执行</th>
+              <th class="border w-12">编号</th>
+              <th class="border w-20">任务名称</th>
+              <th class="border priWidth">P</th>
+              <th class="border dateWidth">预计开始</th>
+              <th class="border dateWidth">实际开始</th>
+              <th class="border dateWidth">截止日期</th>
+              <th class="border dateWidth">实际完成</th>
+              <th class="border delayWidth">延期(天)</th>
+              <th class="border estWidth">最初预计</th>
+              <th class="border w-24">任务消耗工时</th>
+              <th class="border taskTotalWidth">总任务数</th>
+              <th class="border projectConsumedWidth">执行总消耗</th>
+              <th class="border userConsumedWidth">用户总消耗</th>
+            </tr>
+          </thead>
+          <tbody>
+                                                            <tr class="text-center">
+              <td class="border w-user" rowspan="47">全秋霞 </td>
+                                                                      <td class='border text-left' rowspan="47" title='销售财务中台管理系统'>销售财务中台管理系统</td>
+                                                                      <td class='border text-left' rowspan="24" title='/【2026】FMS-0530'>/【2026】FMS-0530</td>
+                                                        <td class='border'>278536</td>
+              <td class="border text-left" title="【后端】5月6日1175 汇票认款界面增加“认款状态”筛选框和1176 网批业务板块人工认款增加添加附件以及审核功能需求评审">
+                [多人] 【后端】5月6日1175 汇票认款界面增加“认款状态”筛选框和1176 网批业务板块人工认款增加添加附件以及审核功能需求评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1.5</td>
+              <td class="border">1.5</td>
+                            <td class="border" rowspan="24">24</td>
+              <td class="border" rowspan="24">143.5</td>
+                                          <td class="border" rowspan="47">282</td>
+                          </tr>
+                                      <tr class='text-center'>              <td class='border'>277283</td>
+              <td class="border text-left" title="【后端】5月9日1175 汇票认款界面增加“认款状态”筛选框和1176 网批业务板块人工认款增加添加附件以及审核功能UI评审">
+                [多人] 【后端】5月9日1175 汇票认款界面增加“认款状态”筛选框和1176 网批业务板块人工认款增加添加附件以及审核功能UI评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-05-09</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class='border dateWidth'>2026-05-09</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>284207</td>
+              <td class="border text-left" title="开发认款记录页面导出功能">
+                开发认款记录页面导出功能              </td>
+              <td class='border priWidth'><span class='pri0'>0</span></td>
+              <td class='border dateWidth'>2026-05-26</td>
+              <td class='border dateWidth'>2026-05-26</td>
+              <td class='border dateWidth'>2026-05-30</td>
+              <td class='border dateWidth'>2026-05-26</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>278594</td>
+              <td class="border text-left" title="5月12日科室2026年度提效方案讨论">
+                [多人] 5月12日科室2026年度提效方案讨论              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-05-12</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class='border dateWidth'>2026-05-12</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>276584</td>
+              <td class="border text-left" title="生产环境售后分账账单字段显示问题排查及处理">
+                生产环境售后分账账单字段显示问题排查及处理              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-07</td>
+              <td class='border dateWidth'>2026-05-08</td>
+              <td class='border dateWidth'>2026-05-08</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">4</td>
+              <td class="border">5</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>276585</td>
+              <td class="border text-left" title="AI技术研究及使用">
+                AI技术研究及使用              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-09</td>
+              <td class='border dateWidth'>2026-05-09</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">18</td>
+              <td class="border">18</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280938</td>
+              <td class="border text-left" title="认款记录分页查询与导出返回添加审核状态">
+                认款记录分页查询与导出返回添加审核状态              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-30</td>
+              <td class='border dateWidth'>2026-05-19</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">5</td>
+              <td class="border">5</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280939</td>
+              <td class="border text-left" title="开发人工认款附件查询接口">
+                开发人工认款附件查询接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-19</td>
+              <td class='border dateWidth'>2026-05-30</td>
+              <td class='border dateWidth'>2026-05-19</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">4</td>
+              <td class="border">4</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280940</td>
+              <td class="border text-left" title="开发人工认款上传附件接口">
+                开发人工认款上传附件接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-30</td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280941</td>
+              <td class="border text-left" title="开发人工认款提交页审批信息查询接口">
+                开发人工认款提交页审批信息查询接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-20</td>
+              <td class='border dateWidth'>2026-05-30</td>
+              <td class='border dateWidth'>2026-05-20</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280943</td>
+              <td class="border text-left" title="开发汇票审核申请单分页查询与详情查询接口">
+                开发汇票审核申请单分页查询与详情查询接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-21</td>
+              <td class='border dateWidth'>2026-05-30</td>
+              <td class='border dateWidth'>2026-05-21</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280945</td>
+              <td class="border text-left" title="开发单个人工认款接口">
+                开发单个人工认款接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-22</td>
+              <td class='border dateWidth'>2026-05-30</td>
+              <td class='border dateWidth'>2026-05-22</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280948</td>
+              <td class="border text-left" title="人工认款审核页面前端联调">
+                人工认款审核页面前端联调              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-25</td>
+              <td class='border dateWidth'>2026-05-30</td>
+              <td class='border dateWidth'>2026-05-25</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280187</td>
+              <td class="border text-left" title="应收单管理核销详情接口">
+                应收单管理核销详情接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-20</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-20</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>287103</td>
+              <td class="border text-left" title="530投产脚本编写及自测">
+                [多人] 530投产脚本编写及自测              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-25</td>
+              <td class='border dateWidth'>2026-05-25</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">3</td>
+              <td class="border">3</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280192</td>
+              <td class="border text-left" title="到账单管理核销详情接口">
+                到账单管理核销详情接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-11</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280197</td>
+              <td class="border text-left" title="预收单管理核销详情接口">
+                预收单管理核销详情接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>288150</td>
+              <td class="border text-left" title="【后端4】5月27日0530版本投产方案评审">
+                【后端4】5月27日0530版本投产方案评审              </td>
+              <td class='border priWidth'><span class='pri0'>0</span></td>
+              <td class='border dateWidth'>2026-05-27</td>
+              <td class='border dateWidth'>2026-05-27</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-05-27</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>288674</td>
+              <td class="border text-left" title="0530版投产支持">
+                [多人] 0530版投产支持              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">3</td>
+              <td class="border">3</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>288681</td>
+              <td class="border text-left" title="认款资金分配与管控模块需求分析">
+                认款资金分配与管控模块需求分析              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-07</td>
+              <td class='border dateWidth'>2026-05-07</td>
+              <td class='border dateWidth'>2026-05-26</td>
+              <td class='border dateWidth'>2026-05-20</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>288682</td>
+              <td class="border text-left" title="代码规范与审查">
+                代码规范与审查              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-07</td>
+              <td class='border dateWidth'>2026-05-13</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-28</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">4</td>
+              <td class="border">4</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>288683</td>
+              <td class="border text-left" title="团队成员开发任务拆解与进度管控">
+                团队成员开发任务拆解与进度管控              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-07</td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">5</td>
+              <td class="border">5</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>275662</td>
+              <td class="border text-left" title="5月6日组长例会">
+                [多人] 5月6日组长例会              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280810</td>
+              <td class="border text-left" title="【后端2】5月15日1176 网批业务板块人工认款增加添加附件以及审核功能详设评审">
+                【后端2】5月15日1176 网批业务板块人工认款增加添加附件以及审核功能详设评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class='border dateWidth'>2026-05-22</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                                  <tr class='text-center'>              <td class='border text-left' rowspan="1" title='/【2026】FMS-0515'>/【2026】FMS-0515</td>
+                                                        <td class='border'>280781</td>
+              <td class="border text-left" title="【后端1】5月14日0515版本投产方案评审">
+                【后端1】5月14日0515版本投产方案评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-14</td>
+              <td class='border dateWidth'>2026-05-14</td>
+              <td class='border dateWidth'>2026-05-21</td>
+              <td class='border dateWidth'>2026-05-14</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                            <td class="border" rowspan="1">1</td>
+              <td class="border" rowspan="1">1</td>
+                                        </tr>
+                                                  <tr class='text-center'>              <td class='border text-left' rowspan="10" title='/【2026】FMS-0630'>/【2026】FMS-0630</td>
+                                                        <td class='border'>278660</td>
+              <td class="border text-left" title="【后端】5月11日手工核销、退款核销、预收款单核销和反核销详设评审">
+                [多人] 【后端】5月11日手工核销、退款核销、预收款单核销和反核销详设评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-05-11</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">14.5</td>
+              <td class="border">14.5</td>
+                            <td class="border" rowspan="10">10</td>
+              <td class="border" rowspan="10">58.5</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>293255</td>
+              <td class="border text-left" title="0615投产脚本编写">
+                0615投产脚本编写              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-11</td>
+              <td class='border dateWidth'>2026-06-11</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">4</td>
+              <td class="border">4</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>278669</td>
+              <td class="border text-left" title="【后端】5月12日标准信用的自动还款需求方案讨论">
+                [多人] 【后端】5月12日标准信用的自动还款需求方案讨论              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-05-12</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>293276</td>
+              <td class="border text-left" title="预收款单核销记录查询接口前后端联调">
+                预收款单核销记录查询接口前后端联调              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-30</td>
+              <td class='border dateWidth'>2026-06-12</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>293277</td>
+              <td class="border text-left" title="应收单核销记录查询接口前后端联调">
+                应收单核销记录查询接口前后端联调              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-30</td>
+              <td class='border dateWidth'>2026-06-12</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>293287</td>
+              <td class="border text-left" title="6月12日组长例会">
+                [多人] 6月12日组长例会              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-06-12</td>
+              <td class='border dateWidth'>2026-06-19</td>
+              <td class='border dateWidth'>2026-06-15</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>291013</td>
+              <td class="border text-left" title="钱包支付中心修复售后收付通分账请求返回502的问题">
+                钱包支付中心修复售后收付通分账请求返回502的问题              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-15</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>291014</td>
+              <td class="border text-left" title="售后分账请求银联返回502链路失败处理脚本">
+                售后分账请求银联返回502链路失败处理脚本              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class='border dateWidth'>2026-06-15</td>
+              <td class='border dateWidth'>2026-06-12</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>291543</td>
+              <td class="border text-left" title="【后端3】6月9日网批工程收差开发工作量评估">
+                【后端3】6月9日网批工程收差开发工作量评估              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-16</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>291555</td>
+              <td class="border text-left" title="【后端1】6月9日付款单调研优化问题UI评审">
+                【后端1】6月9日付款单调研优化问题UI评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-16</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                                  <tr class='text-center'>              <td class='border text-left' rowspan="12" title='/【2026】FMS-0615'>/【2026】FMS-0615</td>
+                                                        <td class='border'>284534</td>
+              <td class="border text-left" title="[后端2]5月21日1158 - FMS系统增加已签收票据邮件收件人配置功能需求评审">
+                [后端2]5月21日1158 - FMS系统增加已签收票据邮件收件人配置功能需求评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-21</td>
+              <td class='border dateWidth'>2026-05-21</td>
+              <td class='border dateWidth'>2026-05-28</td>
+              <td class='border dateWidth'>2026-05-21</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                            <td class="border" rowspan="12">12</td>
+              <td class="border" rowspan="12">79</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>284541</td>
+              <td class="border text-left" title="[后端2]5月25日1158 - FMS系统增加已签收票据邮件收件人配置功能UI评审">
+                [后端2]5月25日1158 - FMS系统增加已签收票据邮件收件人配置功能UI评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-25</td>
+              <td class='border dateWidth'>2026-05-25</td>
+              <td class='border dateWidth'>2026-06-01</td>
+              <td class='border dateWidth'>2026-05-25</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>284287</td>
+              <td class="border text-left" title="【详细设计】已签收票据邮件收件人配置功能">
+                【详细设计】已签收票据邮件收件人配置功能              </td>
+              <td class='border priWidth'><span class='pri1'>1</span></td>
+              <td class='border dateWidth'>2026-06-01</td>
+              <td class='border dateWidth'>2026-05-27</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class='border dateWidth'>2026-05-27</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>284288</td>
+              <td class="border text-left" title="配置列表查询接口开发、自测及bug修复">
+                配置列表查询接口开发、自测及bug修复              </td>
+              <td class='border priWidth'><span class='pri1'>1</span></td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class='border dateWidth'>2026-05-28</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class='border dateWidth'>2026-05-28</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>284289</td>
+              <td class="border text-left" title="配置详情获取接口开发、自测及bug修复">
+                配置详情获取接口开发、自测及bug修复              </td>
+              <td class='border priWidth'><span class='pri1'>1</span></td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>284290</td>
+              <td class="border text-left" title="配置保存/更新接口开发、自测及bug修复">
+                配置保存/更新接口开发、自测及bug修复              </td>
+              <td class='border priWidth'><span class='pri1'>1</span></td>
+              <td class='border dateWidth'>2026-06-04</td>
+              <td class='border dateWidth'>2026-06-01</td>
+              <td class='border dateWidth'>2026-06-04</td>
+              <td class='border dateWidth'>2026-06-01</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>284291</td>
+              <td class="border text-left" title="邮件发送服务升级、自测及bug修复">
+                邮件发送服务升级、自测及bug修复              </td>
+              <td class='border priWidth'><span class='pri1'>1</span></td>
+              <td class='border dateWidth'>2026-06-05</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class='border dateWidth'>2026-06-05</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>284292</td>
+              <td class="border text-left" title="批量启用/禁用接口开发、自测及bug修复">
+                批量启用/禁用接口开发、自测及bug修复              </td>
+              <td class='border priWidth'><span class='pri1'>1</span></td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-05</td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>284293</td>
+              <td class="border text-left" title="整体功能联调">
+                整体功能联调              </td>
+              <td class='border priWidth'><span class='pri1'>1</span></td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>293269</td>
+              <td class="border text-left" title="【后端1】6月11日0615版本投产方案评审">
+                【后端1】6月11日0615版本投产方案评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-11</td>
+              <td class='border dateWidth'>2026-06-11</td>
+              <td class='border dateWidth'>2026-06-18</td>
+              <td class='border dateWidth'>2026-06-11</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>289254</td>
+              <td class="border text-left" title="钱包侧新增售后账单查询接口开发自测和联调">
+                钱包侧新增售后账单查询接口开发自测和联调              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>289255</td>
+              <td class="border text-left" title="邮件配置页菜单配置脚本编写及自测">
+                邮件配置页菜单配置脚本编写及自测              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-04</td>
+              <td class='border dateWidth'>2026-06-04</td>
+              <td class='border dateWidth'>2026-06-04</td>
+              <td class='border dateWidth'>2026-06-04</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">4</td>
+              <td class="border">4</td>
+                                        </tr>
+                                                                                    <tr class="text-center">
+              <td class="border w-user" rowspan="42">关珊</td>
+                                                                      <td class='border text-left' rowspan="42" title='销售财务中台管理系统'>销售财务中台管理系统</td>
+                                                                      <td class='border text-left' rowspan="18" title='/【2026】FMS-0530'>/【2026】FMS-0530</td>
+                                                        <td class='border'>278594</td>
+              <td class="border text-left" title="5月12日科室2026年度提效方案讨论">
+                [多人] 5月12日科室2026年度提效方案讨论              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-05-12</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class='border dateWidth'>2026-05-12</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                            <td class="border" rowspan="18">18</td>
+              <td class="border" rowspan="18">170</td>
+                                          <td class="border" rowspan="42">288.5</td>
+                          </tr>
+                                      <tr class='text-center'>              <td class='border'>281154</td>
+              <td class="border text-left" title="预收款核销批次订单流水和到账流水数据组装通用方法">
+                预收款核销批次订单流水和到账流水数据组装通用方法              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-13</td>
+              <td class='border dateWidth'>2026-05-13</td>
+              <td class='border dateWidth'>2026-05-13</td>
+              <td class='border dateWidth'>2026-05-13</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">12</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>281155</td>
+              <td class="border text-left" title="预收款核销批次更新">
+                预收款核销批次更新              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-14</td>
+              <td class='border dateWidth'>2026-05-14</td>
+              <td class='border dateWidth'>2026-05-14</td>
+              <td class='border dateWidth'>2026-05-14</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">12</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>281161</td>
+              <td class="border text-left" title="预收款单核销功能单元测试及修改">
+                预收款单核销功能单元测试及修改              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">8</td>
+              <td class="border">4</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>281162</td>
+              <td class="border text-left" title="预收款单创建单元测试及修改">
+                预收款单创建单元测试及修改              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">8</td>
+              <td class="border">4</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280148</td>
+              <td class="border text-left" title="收款单管理货款账户生成预收单">
+                收款单管理货款账户生成预收单              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-07</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">18</td>
+              <td class="border">18</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280149</td>
+              <td class="border text-left" title="货款支付核销匹配到账单">
+                货款支付核销匹配到账单              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-08</td>
+              <td class='border dateWidth'>2026-05-08</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-08</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280150</td>
+              <td class="border text-left" title="货款支付核销生成核销批次">
+                货款支付核销生成核销批次              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-11</td>
+              <td class='border dateWidth'>2026-05-11</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280151</td>
+              <td class="border text-left" title="货款支付核销生成核销记录">
+                货款支付核销生成核销记录              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-12</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-12</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280184</td>
+              <td class="border text-left" title="应收单管理合同执行情况接口">
+                应收单管理合同执行情况接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-22</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-25</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">12</td>
+              <td class="border">12</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280185</td>
+              <td class="border text-left" title="应收单管理订单详情接口">
+                应收单管理订单详情接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-25</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-26</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">12</td>
+              <td class="border">12</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280190</td>
+              <td class="border text-left" title="到账单管理流水信息接口">
+                到账单管理流水信息接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-21</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-22</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">12</td>
+              <td class="border">12</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280191</td>
+              <td class="border text-left" title="到账单管理到账流水接口">
+                到账单管理到账流水接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-19</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-20</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">12</td>
+              <td class="border">12</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>280195</td>
+              <td class="border text-left" title="预收单管理订单详情接口">
+                预收单管理订单详情接口              </td>
+              <td class='border priWidth'><span class='pri2'>2</span></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-19</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">15</td>
+              <td class="border">12</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>286898</td>
+              <td class="border text-left" title="与银联讨论分账进件问题">
+                与银联讨论分账进件问题              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-27</td>
+              <td class='border dateWidth'>2026-05-27</td>
+              <td class='border dateWidth'>2026-05-27</td>
+              <td class='border dateWidth'>2026-05-27</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">4</td>
+              <td class="border">4</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>286899</td>
+              <td class="border text-left" title="梳理分账进件第一批支行数据">
+                梳理分账进件第一批支行数据              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-20</td>
+              <td class='border dateWidth'>2026-05-22</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">22</td>
+              <td class="border">15</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>286900</td>
+              <td class="border text-left" title="解决分账进件各种问题">
+                解决分账进件各种问题              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-26</td>
+              <td class='border dateWidth'>2026-05-20</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class='border dateWidth'>2026-05-29</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">18</td>
+              <td class="border">18</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>275662</td>
+              <td class="border text-left" title="5月6日组长例会">
+                [多人] 5月6日组长例会              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class='border dateWidth'>2026-05-06</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                                  <tr class='text-center'>              <td class='border text-left' rowspan="22" title='/【2026】FMS-0630'>/【2026】FMS-0630</td>
+                                                        <td class='border'>291163</td>
+              <td class="border text-left" title="售后用户信息启用">
+                售后用户信息启用              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">2</td>
+              <td class="border">2</td>
+                            <td class="border" rowspan="22">22</td>
+              <td class="border" rowspan="22">116.5</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>278660</td>
+              <td class="border text-left" title="【后端】5月11日手工核销、退款核销、预收款单核销和反核销详设评审">
+                [多人] 【后端】5月11日手工核销、退款核销、预收款单核销和反核销详设评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-05-11</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">14.5</td>
+              <td class="border">14.5</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292492</td>
+              <td class="border text-left" title="售后好易联账号注销">
+                售后好易联账号注销              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-12</td>
+              <td class='border dateWidth'>2026-06-12</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">2</td>
+              <td class="border">2</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>278669</td>
+              <td class="border text-left" title="【后端】5月12日标准信用的自动还款需求方案讨论">
+                [多人] 【后端】5月12日标准信用的自动还款需求方案讨论              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-05-12</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class='border dateWidth'>2026-05-15</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>288142</td>
+              <td class="border text-left" title="【后端2】5月26日收付通分账进件再优化需求评审">
+                【后端2】5月26日收付通分账进件再优化需求评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-26</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292494</td>
+              <td class="border text-left" title="预收款核销调整调用方式">
+                预收款核销调整调用方式              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292495</td>
+              <td class="border text-left" title="预收款核销自测及修改保存数据问题">
+                预收款核销自测及修改保存数据问题              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292496</td>
+              <td class="border text-left" title="预收款流水前后端联调">
+                预收款流水前后端联调              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">5</td>
+              <td class="border">5</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>293264</td>
+              <td class="border text-left" title="【后端2】6月10日应收板块用例评审">
+                【后端2】6月10日应收板块用例评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class='border dateWidth'>2026-06-11</td>
+              <td class='border dateWidth'>2026-06-17</td>
+              <td class='border dateWidth'>2026-06-11</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">3</td>
+              <td class="border">3</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292497</td>
+              <td class="border text-left" title="预收款核销记录前后端联调">
+                预收款核销记录前后端联调              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">4</td>
+              <td class="border">4</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292498</td>
+              <td class="border text-left" title="自动还款设置多表关联查询">
+                自动还款设置多表关联查询              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class='border dateWidth'>2026-06-10</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292499</td>
+              <td class="border text-left" title="自动还款设置详情查询">
+                自动还款设置详情查询              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">4</td>
+              <td class="border">4</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292500</td>
+              <td class="border text-left" title="自动还款设置级联删除">
+                自动还款设置级联删除              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">4</td>
+              <td class="border">4</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292501</td>
+              <td class="border text-left" title="自动还款设置修改：查重、级联修改">
+                自动还款设置修改：查重、级联修改              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-04</td>
+              <td class='border dateWidth'>2026-06-04</td>
+              <td class='border dateWidth'>2026-06-04</td>
+              <td class='border dateWidth'>2026-06-04</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292502</td>
+              <td class="border text-left" title="自动还款设置级联保存">
+                自动还款设置级联保存              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-05</td>
+              <td class='border dateWidth'>2026-06-05</td>
+              <td class='border dateWidth'>2026-06-05</td>
+              <td class='border dateWidth'>2026-06-05</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292503</td>
+              <td class="border text-left" title="自动还款设置查询、保存、修改、删除功能自测">
+                自动还款设置查询、保存、修改、删除功能自测              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-11</td>
+              <td class='border dateWidth'>2026-06-11</td>
+              <td class='border dateWidth'>2026-06-11</td>
+              <td class='border dateWidth'>2026-06-11</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292504</td>
+              <td class="border text-left" title="自动还款设置前后端联调">
+                自动还款设置前后端联调              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-12</td>
+              <td class='border dateWidth'>2026-06-12</td>
+              <td class='border dateWidth'>2026-06-12</td>
+              <td class='border dateWidth'>2026-06-12</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>292507</td>
+              <td class="border text-left" title="分账进件账户查询定时任务优化">
+                分账进件账户查询定时任务优化              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-24</td>
+              <td class='border dateWidth'>2026-06-12</td>
+              <td class='border dateWidth'>2026-06-30</td>
+              <td class='border dateWidth'>2026-06-15</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">9</td>
+              <td class="border">9</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>288156</td>
+              <td class="border text-left" title="【后端1】5月26日收付通分账进件再优化UI评审">
+                【后端1】5月26日收付通分账进件再优化UI评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-05-26</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>293287</td>
+              <td class="border text-left" title="6月12日组长例会">
+                [多人] 6月12日组长例会              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-06-12</td>
+              <td class='border dateWidth'>2026-06-19</td>
+              <td class='border dateWidth'>2026-06-15</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>291538</td>
+              <td class="border text-left" title="【后端2】6月8日1167-新增出口报价测算报批机制详设评审">
+                【后端2】6月8日1167-新增出口报价测算报批机制详设评审              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class='border dateWidth'>2026-06-15</td>
+              <td class='border dateWidth'>2026-06-08</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>291542</td>
+              <td class="border text-left" title="【后端2】6月9日网批工程收差开发工作量评估">
+                【后端2】6月9日网批工程收差开发工作量评估              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class='border dateWidth'>2026-06-16</td>
+              <td class='border dateWidth'>2026-06-09</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                                  <tr class='text-center'>              <td class='border text-left' rowspan="2" title='/【2026】FMS-0615'>/【2026】FMS-0615</td>
+                                                        <td class='border'>281714</td>
+              <td class="border text-left" title="【后端1】5月18日售后分账进件查询与优化需求评审">
+                【后端1】5月18日售后分账进件查询与优化需求评审              </td>
+              <td class='border priWidth'><span class='pri0'>0</span></td>
+              <td class='border dateWidth'></td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class='border dateWidth'>2026-05-25</td>
+              <td class='border dateWidth'>2026-05-18</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                            <td class="border" rowspan="2">2</td>
+              <td class="border" rowspan="2">2</td>
+                                        </tr>
+                                      <tr class='text-center'>              <td class='border'>282239</td>
+              <td class="border text-left" title="【后端1】5月20日收付通分账进件和标准信用与自动还款设置UI评审">
+                【后端1】5月20日收付通分账进件和标准信用与自动还款设置UI评审              </td>
+              <td class='border priWidth'><span class='pri0'>0</span></td>
+              <td class='border dateWidth'>2026-05-20</td>
+              <td class='border dateWidth'>2026-05-20</td>
+              <td class='border dateWidth'>2026-05-27</td>
+              <td class='border dateWidth'>2026-05-20</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">1</td>
+              <td class="border">1</td>
+                                        </tr>
+                                                                                    <tr class="text-center">
+              <td class="border w-user" rowspan="2">苏方进</td>
+                                                                      <td class='border text-left' rowspan="2" title='销售财务中台管理系统'>销售财务中台管理系统</td>
+                                                                      <td class='border text-left' rowspan="2" title='/【2026】FMS-0630'>/【2026】FMS-0630</td>
+                                                        <td class='border'>289684</td>
+              <td class="border text-left" title="删除表数据 t_invoice_finance_order 和 t_invoice_finance_gift">
+                删除表数据 t_invoice_finance_order 和 t_invoice_finance_gift              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class='border dateWidth'>2026-06-03</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">0.1</td>
+              <td class="border">0.1</td>
+                            <td class="border" rowspan="2">2</td>
+              <td class="border" rowspan="2">0.2</td>
+                                          <td class="border" rowspan="2">0.2</td>
+                          </tr>
+                                      <tr class='text-center'>              <td class='border'>289219</td>
+              <td class="border text-left" title="OMS业务单号超长,维护数据,该单的红票实际成功,但是保存失败">
+                OMS业务单号超长,维护数据,该单的红票实际成功,但是保存失败              </td>
+              <td class='border priWidth'><span class='pri3'>3</span></td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class='border dateWidth'>2026-06-02</td>
+              <td class="border dateWidth">
+                              </td>
+              <td class="border">0.1</td>
+              <td class="border">0.1</td>
+                                        </tr>
+                                                                      </tbody>
+        </table>
+      </div>
+    </div>
+    <div class='pull-right p-2 no-morph' id='pagerWorkSummary' zui-create zui-create-pager="window.pagerWorkSummaryOptions"></div>
+  </div>
+</div>
+<script>
+function changeParams()
+{
+    const beginPick = $('#beginPicker').zui();
+    const endPick = $('#endPicker').zui();
+
+    var dept  = $('#conditions').find('#dept').val();
+    var begin = beginPick.$.value;
+    var end   = endPick.$.value;
+    if(begin.indexOf('-') != -1)
+    {
+        var beginarray = begin.split("-");
+        var begin = '';
+        for(i=0 ; i < beginarray.length ; i++)
+        {
+            begin = begin + beginarray[i];
+        }
+    }
+    if(end.indexOf('-') != -1)
+    {
+        var endarray = end.split("-");
+        var end = '';
+        for(i=0 ; i < endarray.length ; i++)
+        {
+            end = end + endarray[i];
+        }
+    }
+
+    var params = window.btoa('begin=' + begin + '&end=' + end + '&dept=' + dept);
+    var link = $.createLink('pivot', 'preview', 'dimension=' + 1 + '&group=' + 16441 + '&method=worksummary&params=' + params);
+    window.location.href = link;
+}
+
+function getLink(info)
+{
+    const beginPick = $('#beginPicker').zui();
+    const endPick = $('#endPicker').zui();
+
+    var dept  = $('#conditions').find('#dept').val();
+    var begin = beginPick.$.value;
+    var end   = endPick.$.value;
+    if(begin.indexOf('-') != -1)
+    {
+        var beginarray = begin.split("-");
+        var begin = '';
+        for(i=0 ; i < beginarray.length ; i++)
+        {
+            begin = begin + beginarray[i];
+        }
+    }
+    if(end.indexOf('-') != -1)
+    {
+        var endarray = end.split("-");
+        var end = '';
+        for(i=0 ; i < endarray.length ; i++)
+        {
+            end = end + endarray[i];
+        }
+    }
+
+    var params = window.btoa('begin=' + begin + '&end=' + end + '&dept=' + dept + '&recTotal=' + info.recTotal + '&recPerPage=' + info.recPerPage + '&pageID=' + info.page);
+    return $.createLink('pivot', 'preview', 'dimension=' + 1 + '&group=' + 16441 + '&method=worksummary&params=' + params);
+}
+
+window.pagerWorkSummaryOptions = {
+    items: [
+        {type: 'info', text: '共 677 项'},
+        {type: 'size-menu', text: '每页 20 项', dropdown: {placement: 'top'}},
+        {type: 'link', page: 'first', icon: 'icon-first-page', hint: '第一页'},
+        {type: 'link', page: 'prev', icon: 'icon-angle-left', hint: '上一页'},
+        {type: 'info', text: '1/34'},
+        {type: 'link', page: 'next', icon: 'icon-angle-right', hint: '下一页'},
+        {type: 'link', page: 'last', icon: 'icon-last-page', hint: '最后一页'},
+    ],
+    page: 1,
+    recTotal: 677,
+    recPerPage: 20,
+    linkCreator: (info) => {return getLink(info);}
+};
+</script>
+</div></div></div></div></div>
+<script id="exportJS">
+/**
+ * Export file.
+ *
+ * @param  object $domObj
+ * @access public
+ * @return void
+ */
+exportFile = function($domObj)
+{
+    if(typeof $domObj == 'undefined') return;
+
+    var fileName  = $('#fileName').val().trim() ? $('#fileName').val().trim() : $('#fileName')[0].placeholder;
+    var fileType  = $('[name=fileType]').zui('picker').$.value;
+    var tableName = fileName + '.' + fileType;
+
+    if(fileType == 'xlsx' || fileType == 'xls')
+    {
+        const new_sheet = XLSX.utils.table_to_book($domObj, {raw: true});
+        XLSX.writeFile(new_sheet, tableName);
+    }
+    else if(fileType == 'html' || fileType == 'mht')
+    {
+        const htmlContent = $domObj.outerHTML;
+
+        const $temp = $('<div>').html(htmlContent);
+        $temp.find('*').removeAttr('style');
+        $temp.find('*').removeAttr('class');
+        $temp.find('*').removeAttr('data-flex');
+        $temp.find('*').removeAttr('data-width');
+        $temp.find('*').removeAttr('data-type');
+        $temp.find('*').removeAttr('data-fixed-left-width');
+        const cleanTableHTML = $temp.html();
+
+        var head  = '<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
+        var style = '<style>table, th, td {font-size: 12px; border: 1px solid gray; border-collapse: collapse;}table th, table td {padding: 5px;}</style>';
+        var title = '<title>' + fileName + '</title></head>';
+        var body  = '<body>' + cleanTableHTML + '</body>';
+        const finalHTML = head + style + title + body;
+
+        if(fileType == 'html')
+        {
+            const blob = new Blob([finalHTML], { type: 'text/html;charset=utf-8' });
+            saveAs(blob, tableName);
+        }
+        else if(fileType == 'mht')
+        {
+            const data = {html: finalHTML, fileName: fileName};
+            $.post($.createLink('file', 'ajaxExport2mht'), data, function(resp)
+            {
+                const blob = new Blob([resp], { type: "application/x-mimearchive" });
+                saveAs(blob, tableName);
+            });
+        }
+    }
+    $('#export').modal('hide');
+}
+</script>
+<script>
+window.waitDom('#moduleMenu menu li[z-key="' + 'worksummary' + '"]', function(){$('#moduleMenu menu').find('li[z-key="' + 'worksummary' + '"] div').first().addClass('selected')});
+</script>
+<script class="zin-page-js" data-id="pivot-preview">;(function(){zui.defineFn();
+;(function(){/**
+ * @type {string[]}
+ */
+const allNavbarItemNames = [];
+
+/**
+ * @type {Map<string, any>}
+ */
+const allNavbarItemMap = new Map();
+
+$(document).ready(
+    function()
+    {
+        allNavbarItemNames.length = 0;
+        allNavbarItemMap.clear();
+
+        for(const item of allNavbarItems)
+        {
+            if(item.type === 'divider')
+            {
+                allNavbarItemNames.push('divider');
+                continue;
+            }
+
+            const name = item['data-id'] || item.id;
+
+            allNavbarItemNames.push(name);
+            allNavbarItemMap.set(name, item);
+        }
+    }
+);
+
+/**
+ * Get current navbar items data.
+ *
+ * @returns {Array<{name: string; order: number;}>}
+ */
+function getCurrentNavbarItems()
+{
+    const items = [];
+    const $nav  = $('#navbar .nav');
+    $nav.children().each(
+        function(index, element)
+        {
+            const $elm     = $(element)
+            const $a       = $elm.find('a');
+            const menuItem = {};
+            menuItem.name  = $elm.is('.nav-divider') ? 'divider' : ($a.attr('data-id') || $a.attr('id'));
+            menuItem.order = index * 5;
+            if(typeof $elm.data('hidden') != 'undefined') menuItem.hidden = true;
+
+            items.push(menuItem);
+        }
+    );
+    console.log(items);
+    return items;
+}
+
+/**
+ * Generate navbar items to be added.
+ * @param {Cash} $item
+ * @param {(item: string) => void} onClick click handler of navbar item.
+ * @returns {Array<{text: string; onClick: () => void;}>}
+ */
+function generateAddNavbarItems($item, onClick)
+{
+    const items = canAddDivider($item)
+        ? [{
+            text: langData.divider,
+            onClick: () => {
+                onClick('divider');
+                saveNavbarToServer();
+            }
+        }]
+        : [];
+
+    const allNavbarItemIDSet = new Set(allNavbarItemMap.keys());
+    const curNavbarItems = getCurrentNavbarItems();
+    for(const {name} of curNavbarItems)
+    {
+        if(name === 'divider') continue;
+        allNavbarItemIDSet.delete(name);
+    }
+
+    if(allNavbarItemIDSet.size === 0) return items;
+    for(const name of allNavbarItemIDSet)
+    {
+        const item = allNavbarItemMap.get(name);
+        items.push(
+            {
+                text: item.text,
+                onClick: () => {
+                    onClick(name);
+                    saveNavbarToServer();
+                }
+            }
+        );
+    }
+    return items;
+}
+
+/**
+ * Checks whether the current navbar item can be hidden.
+ *
+ * @param {Cash} $item
+ * @returns {boolean}
+ */
+function canHideCurrentNavbar($item)
+{
+    if($item.is('.nav-divider')) return true;
+    if($item.is('.active')) return false;
+
+    const app = $.apps.getLastApp();
+    const appDefaultUrl = app.url;
+    const itemUrl = $item.attr('href');
+    if(itemUrl.includes(appDefaultUrl)) return false;
+    return true;
+}
+
+/**
+ * Get menu name by items and app.
+ *
+ * @param {string} app
+ * @returns {string}
+ */
+function getMenuName(app)
+{
+    if(typeof projectModel !== 'undefined')
+    {
+        return `project-${projectModel}`;
+    }
+
+    if(isHomeMenu)
+    {
+        return `${app}-home`;
+    }
+
+    if(app == 'admin')
+    {
+        return `admin-${adminMenuKey}`;
+    }
+    return app;
+}
+
+$(document).on(
+    'contextmenu',
+    '#navbar .nav-item:not(.nav-dropdown) > a, #navbar .nav-divider',
+    function(event)
+    {
+        if(isTutorialMode) return;
+
+        const $item        = $(this);
+        const $nav         = $('#navbar .nav');
+        const isMoving     = $nav.is('[z-use-sortable]');
+        const hideDisabled = !canHideCurrentNavbar($item);
+        const $li          = $item.closest('li');
+        const toAddedItems = generateAddNavbarItems($item, (name) => {
+            if(name === 'divider') return $li.after('<li class="nav-divider item divider"></li>');
+
+            const item = allNavbarItemMap.get(name);
+            const $a = $('<a></a>')
+                .attr('href', item.url)
+                .attr('target', item.target)
+                .attr('data-id', item['data-id'])
+                .append(`<span class="text">${item.text}</span>`);
+            if(item.class) $a.attr('class', item.class);
+            const $navItem = $('<li class="nav-item item"></li>');
+            $navItem.append($a);
+            $li.after($navItem);
+            saveNavbarToServer();
+        });
+        const items = [
+            isMoving
+                ? {
+                    text: langData.save,
+                    onClick: () => {
+                        $item.closest('.nav').zui().destroy();
+                        saveNavbarToServer();
+                    }
+                }
+                : {
+                    text: langData.sort,
+                    onClick: () => {
+                        const sortable = new zui.Sortable(
+                            '#navbar .nav',
+                            {
+                                animation: 150,
+                                ghostClass: 'bg-primary-pale',
+                                onSort: () => {
+                                    saveNavbarToServer();
+                                }
+                            }
+                        );
+                    }
+                },
+            {
+                text: langData.hide,
+                disabled: hideDisabled,
+                onClick: hideDisabled
+                    ? null
+                    : () => {
+                        $li.hasClass('nav-divider') ? $li.remove() : $li.hide().attr('data-hidden', '1');
+                        saveNavbarToServer();
+                    }
+            },
+            toAddedItems.length === 0
+                ? {
+                    text: langData.add,
+                    disabled: true,
+                }
+                : {
+                    text: langData.add,
+                    items: toAddedItems,
+                },
+            {
+                text: langData.restore,
+                onClick: () => {
+                    restoreNavbarToServer({
+                        onSuccess() {
+                            loadCurrentPage('#navbar');
+                        }
+                    });
+                }
+            }
+        ];
+        if(window.customNavbarContextMenu) window.customNavbarContextMenu.hide();
+        window.customNavbarContextMenu = zui.ContextMenu.show(
+            {
+                element: $item[0],
+                placement: 'bottom-start',
+                items: items,
+                event: event,
+                onClickItem: (info) => info.event.preventDefault(),
+                onHide: () => window.customNavbarContextMenu = null,
+                $optionsFromDataset: false,
+            }
+        );
+        event.preventDefault();
+    }
+);
+
+/**
+ * Save navbar to server.
+ */
+function saveNavbarToServer()
+{
+    const url = $.createLink('custom', 'ajaxSetMenu');
+    const items     = getCurrentNavbarItems();
+    const app       = $.apps.getLastApp().code;
+    const menu      = getMenuName(app);
+    $.ajaxSubmit({url, data: {menu, items: JSON.stringify(items)}});
+}
+
+/**
+ * Restore navbar to server.
+ */
+function restoreNavbarToServer(options = {})
+{
+    const url  = $.createLink('custom', 'ajaxRestoreMenu');
+    const app  = $.apps.getLastApp().code;
+    const menu = getMenuName(app);
+    $.ajaxSubmit({url, data: {menu}, ...options});
+}
+
+/**
+ * Check whether current element can add a divider.
+ * @param {Cash} $item
+ * @returns {boolean}
+ */
+function canAddDivider($item)
+{
+    $item = $item.closest('li');
+    if($item.is('.divider'))        return false;
+    if($item.next().is('.divider')) return false;
+    if($item.is(':last-child'))     return false;
+    return true;
+};}());
+;(function(){/**
+ * @type {string[]}
+ */
+const allMainNavbarItemNames = [];
+
+/**
+ * @type {Map<string, any>}
+ */
+const allMainNavbarItemMap = new Map();
+
+$(document).ready(
+    function()
+    {
+        allMainNavbarItemNames.length = 0;
+        allMainNavbarItemMap.clear();
+
+        if (typeof allMainNavbarItems !== 'undefined')
+        {
+            for(const item of allMainNavbarItems)
+            {
+                allMainNavbarItemNames.push(item['data-id']);
+                allMainNavbarItemMap.set(item['data-id'], item);
+            }
+        }
+    }
+);
+
+/**
+ * Get current main navbar items data.
+ *
+ * @returns {Array<{name: string; order: number;}>}
+ */
+function getCurrentMainNavbarItems()
+{
+    const items = [];
+    const $nav = $('#mainNavbar .nav');
+    $nav.children().each(
+        function(index, element)
+        {
+            const $elm = $(element);
+            $a = $elm.find('a');
+
+            const menuItem = {};
+            menuItem.name  = $a.attr('data-id'),
+            menuItem.order = index * 5;
+            if(typeof $elm.data('hidden') != 'undefined') menuItem.hidden = true;
+
+            items.push(menuItem);
+        }
+    );
+    return items;
+}
+
+/**
+ * Generate main menu nav items to be added.
+ *
+ * @param {Cash} $item
+ * @param {(name: string) => void} onClick
+ * @returns {Array<{text: string; onClick: () => void;}>}
+ */
+function generateAddMainNavbarItems($item, onClick)
+{
+    const items = [];
+    const allMainNavbarItemIDSet = new Set(allMainNavbarItemMap.keys());
+    const curMainNavbarItems = getCurrentMainNavbarItems();
+    for(const {name} of curMainNavbarItems)
+    {
+        allMainNavbarItemIDSet.delete(name);
+    }
+
+    if(allMainNavbarItemIDSet.size === 0) return items;
+    for(const name of allMainNavbarItemIDSet)
+    {
+        const item = allMainNavbarItemMap.get(name);
+        items.push(
+            {
+                text: item.text,
+                onClick: () => {
+                    onClick(name),
+                    saveMainNavbarToServer($item, {onSuccess: () => loadCurrentPage('#mainNavbar')});
+                }
+            }
+        );
+    }
+    return items;
+}
+
+/**
+ * Checks whether the current navbar item can be hidden.
+ *
+ * @param {Cash} $item
+ * @returns {boolean}
+ */
+function canHideCurrentNavbar($item)
+{
+    if($item.is('.active')) return false;
+
+    const $navbarActiveItem = $('#navbar .nav .active');
+    if($item.attr('href').includes($navbarActiveItem.attr('href'))) return false;
+
+    return true;
+}
+
+$(document).on(
+    'contextmenu',
+    '#mainNavbar .nav-item > a',
+    function(event)
+    {
+        if(isTutorialMode) return;
+
+        const $item        = $(this);
+        const $nav         = $('#mainNavbar .nav');
+        const isMoving     = $nav.is('[z-use-sortable]');
+        const hideDisabled = !canHideCurrentNavbar($item);
+        const $li          = $item.closest('li');
+        const itemsToAdded = generateAddMainNavbarItems($item, (name) => {
+            const item = allMainNavbarItemMap.get(name);
+            const $a = $('<a></a>')
+                .attr('href', item.url)
+                .attr('data-id', item['data-id'])
+                .attr('data-app', item['data-app'])
+                .append(`<span class="text">${item.text}</span>`);
+            if(item.badge)
+            {
+                $a.append(`<span class="${item.badge.class}">${item.badge.text}</span>`);
+            }
+            const $navItem = $('<li class="nav-item item"></li>');
+            $navItem.append($a);
+            $li.after($navItem);
+        });
+        const items = [
+            isMoving
+                ? {
+                    text: langData.save,
+                    onClick: () => {
+                        $item.closest('.nav').zui().destroy();
+                        saveMainNavbarToServer($item);
+                    }
+                }
+                : {
+                    text: langData.sort,
+                    onClick: () => {
+                        const sortable = new zui.Sortable(
+                            '#mainNavbar .nav',
+                            {
+                                animation: 150,
+                                ghostClass: 'bg-primary-pale',
+                                onSort: () => {
+                                    saveMainNavbarToServer($item);
+                                }
+                            }
+                        );
+                    }
+                },
+            {
+                text: langData.hide,
+                disabled: hideDisabled,
+                onClick: hideDisabled
+                    ? null
+                    : () => {
+                        $li.hide().attr('data-hidden', '1');
+                        saveMainNavbarToServer($item);
+                    }
+            },
+            itemsToAdded.length === 0
+                ? {
+                    text: langData.add,
+                    disabled: true,
+                }
+                : {
+                    text: langData.add,
+                    items: itemsToAdded,
+                },
+            {
+                text: langData.restore,
+                onClick: () => {
+                    restoreMainNavbarToServer($item, {
+                        onSuccess() {
+                            loadCurrentPage('#mainNavbar');
+                        }
+                    });
+                }
+            }
+
+        ];
+
+        if(window.customNavbarContextMenu) window.customNavbarContextMenu.hide();
+        window.customNavbarContextMenu = zui.ContextMenu.show(
+            {
+                element: $item[0],
+                placement: 'bottom-start',
+                items: items,
+                event: event,
+                onClickItem: (info) => info.event.preventDefault(),
+                onHide: () => window.customNavbarContextMenu = null,
+                $optionsFromDataset: false,
+            }
+        );
+        event.preventDefault();
+    }
+);
+
+function saveMainNavbarToServer($item, options = {})
+{
+    const items     = getCurrentMainNavbarItems();
+    const menu      = $item.data('group');
+    const url       = $.createLink('custom', 'ajaxSetMenu');
+    $.ajaxSubmit({url, data: {menu, items: JSON.stringify(items)}, ...options});
+}
+
+function restoreMainNavbarToServer($item, options = {})
+{
+    const url  = $.createLink('custom', 'ajaxRestoreMenu');
+    const menu = $item.data('group');
+    $.ajaxSubmit({url, data: {menu}, ...options});
+};}());
+const untitled = "未命名";
+const dimensionID = 1;
+const groupID = "16441";
+const emptyDrillTip = "暂无数据";
+const isHomeMenu = false;
+const allNavbarItems = [{"class":"","icon":"","text":"大屏","url":"\/screen-browse.html","active":false,"target":"","data-id":"screen","data-app":null,"hidden":false},{"class":"","icon":"","text":"透视表","url":"\/pivot-preview.html","active":true,"target":"","data-id":"pivot","data-app":null,"hidden":false},{"class":"","icon":"","text":"图表","url":"\/chart-preview.html","active":false,"target":"","data-id":"chart","data-app":null,"hidden":false},{"type":"divider"},{"class":"","icon":"","text":"数据表","url":"\/dataview-browse.html","active":false,"target":"","data-id":"dataview","data-app":null,"hidden":false}];
+const isTutorialMode = false;
+const langData = {"open":"打开","reload":"刷新","close":"关闭","sort":"排序","save":"退出排序","hide":"隐藏","add":"添加","divider":"分割线","restore":"恢复默认"};
+window.pivotID = typeof(pivotID) != 'undefined' ? pivotID : 0;
+window.clickCell = function(col, {colName, rowInfo})
+{
+    const drillConditions = rowInfo.data.conditions[colName];
+    const isDrill         = rowInfo.data.isDrill[colName];
+    const version         = rowInfo.data.version;
+    const status          = rowInfo.data.status;
+    let value             = rowInfo.data[colName];
+
+    if(!isDrill || rowInfo.data.field0_colspan) return false;
+
+    let conditions   = [];
+    let filterValues = [];
+    let originField  = '0';
+    let id           = window.pivotID;
+
+    if(Array.isArray(value)) value = value[0];
+    value = (value + '').replace('%', '');
+
+    if(Array.isArray(drillConditions) && drillConditions.length)
+    {
+        [originField, conditions] = drillConditions;
+        filterValues = getFilterValues();
+        conditions   = conditions.map(condition => condition.value);
+    }
+    conditions   = latin1ToBase64(JSON.stringify(conditions))
+    filterValues = latin1ToBase64(JSON.stringify(filterValues))
+
+    let drillModalLink = $.createLink('pivot', 'drillModal', `pivotID=${id}&version=${version}&colName=${originField}&status=${status}&conditions=${conditions}&filterValues=${filterValues}&value=${value}`);
+    drillModalLink = drillModalLink.replace(/\+/g, '%2B');
+
+    zui.Modal.open({url: drillModalLink, size: 'lg', key: 'drill'});
+}
+
+window.latin1ToBase64 = function(str)
+{
+    const encoder = new TextEncoder();
+    const latin1Array  = encoder.encode(str);
+    const latin1String = String.fromCharCode.apply(null, latin1Array);
+    return btoa(latin1String);
+}
+
+/**
+ * 获得筛选器表单数据。
+ * Get filter form data.
+ *
+ * @access public
+ * @return object
+ */
+window.getFilterValues = function(where)
+{
+    let root = '';
+    if(where == 'versions')
+    {
+        root = $('#pivotVersionPanel').find('#conditions .filter');
+    }
+    else
+    {
+        root = $('#conditions .filter');
+    }
+
+    const filterValues = [];
+    root.each(function(index)
+    {
+        const $filter = $(this);
+        if ($filter.hasClass('filter-input'))
+        {
+            filterValues[index] = $filter.find('input').val();
+        }
+        else if($filter.hasClass('filter-select') || $filter.hasClass('filter-multipleselect'))
+        {
+            filterValues[index] = $filter.find('.pick-value').val();
+        }
+        else if($filter.hasClass('filter-date') || $filter.hasClass('filter-datetime'))
+        {
+            const $pickValue = $filter.find('.pick-value');
+            if($pickValue.length == 1)
+            {
+                filterValues[index] = $pickValue.val();
+            }
+            else if($pickValue.length == 2)
+            {
+                filterValues[index] = {begin: $pickValue.eq(0).val(), end: $pickValue.eq(1).val()};
+            }
+        }
+    });
+
+    return filterValues;
+}
+
+/**
+ * 计算数据表格的高度。
+ * Calculate height of data table.
+ *
+ * @param  int    height
+ * @access public
+ * @return int
+ */
+window.getHeight = function(height = 800)
+{
+    const windowHeight = $(window).height();
+
+    const $panelBody = $('#pivotPanel .panel-body');
+    const styles = $panelBody.length ? window.getComputedStyle($panelBody[0]) : null;
+    const paddingBottom = parseInt(styles?.paddingBottom ?? 0, 10);
+
+    const boundingRect = $panelBody.length ? $panelBody[0].getBoundingClientRect() : null;
+    const offsetTop = boundingRect?.y ?? 0;
+
+    return Math.min(windowHeight - offsetTop - paddingBottom * 2 - 10, height);
+}
+window.pivotID = pivotID;
+window.waitDom('#export-data-button', function()
+{
+    $(document).off('click', '#export-data-button').on('click', '#export-data-button', () => exportData());
+});
+
+/**
+ * 查询条件改变时重新加载 Bug 创建表。
+ * Reload bug create table when query conditions changed.
+ *
+ * @access public
+ * @return void
+ */
+function loadBugCreate()
+{
+    const begin     = $('#conditions').find('[name="begin"]').val().replaceAll('-', '');
+    const end       = $('#conditions').find('[name="end"]').val().replaceAll('-', '');
+    const product   = $('#conditions').find('[name=product]').val() || 0;
+    const execution = $('#conditions').find('[name=execution]').val() || 0;
+    const params    = window.btoa('begin=' + begin + '&end=' + end + '&product=' + +product + '&execution=' + +execution);
+    const link      = $.createLink('pivot', 'preview', 'dimensionID=' + dimensionID + '&groupID=' + groupID + '&method=bugCreate&params=' + params);
+    loadPage(link, '#pivotPanel');
+}
+
+/**
+ * 查询条件改变时重新加载产品汇总表。
+ * Reload product summary table when query conditions changed.
+ *
+ * @access public
+ * @return void
+ */
+function loadProductSummary()
+{
+    let conditions = '';
+    $('#conditions input[type=checkbox]').each(function(i)
+    {
+        if($(this).prop('checked')) conditions += $(this).val() + ',';
+    })
+    conditions = conditions.substring(0, conditions.length - 1);
+
+    const productID     = $('#product').find('.pick-value').val();
+    const productStatus = $('#productStatus').find('.pick-value').val();
+    const productType   = $('#productType').find('.pick-value').val();
+
+    const params = window.btoa('conditions=' + conditions + '&productID=' + productID + '&productStatus=' + productStatus + '&productType=' + productType);
+    const link   = $.createLink('pivot', 'preview', 'dimensionID=' + dimensionID + '&groupID=' + groupID + '&method=productSummary&params=' + params);
+    loadPage(link, '#pivotPanel');
+}
+
+/**
+ * 查询条件改变时重新加载执行偏差表。
+ * Reload execution deviation table when query conditions changed.
+ *
+ * @access public
+ * @return void
+ */
+function loadProjectDeviation()
+{
+    const begin  = $('#conditions').find('[name="begin"]').val().replaceAll('-', '');
+    const end    = $('#conditions').find('[name="end"]').val().replaceAll('-', '');
+    const params = window.btoa('begin=' + begin + '&end=' + end);
+    const link   = $.createLink('pivot', 'preview', 'dimensionID=' + dimensionID + '&groupID=' + groupID + '&method=projectdeviation&params=' + params);
+    loadPage(link, '#pivotPanel,#pivotChart');
+}
+
+/**
+ * 查询条件改变时重新加载工作负载表。
+ * Reload workload table when query conditions changed.
+ *
+ * @access public
+ * @return void
+ */
+function loadWorkload()
+{
+    const begin    = $('#conditions').find('[name="begin"]').val();
+    const end      = $('#conditions').find('[name="end"]').val();
+    const workhour = $('#conditions').find('#workhour').val();
+    const dept     = $('#conditions').find('[name=dept]').val();
+    const assign   = $('#conditions').find('[name=assign]').val();
+    const days     = diffDate(begin, end);
+
+    $('#days').val(days);
+
+    const params = window.btoa('begin=' + begin.replaceAll('-', '') + '&end=' + end.replaceAll('-', '') + '&days=' + days + '&workhour=' + +workhour + '&dept=' + dept + '&assign=' + assign);
+    const link   = $.createLink('pivot', 'preview', 'dimensionID=' + dimensionID + '&groupID=' + groupID + '&method=workload&params=' + params);
+    loadPage(link, '#pivotPanel');
+}
+
+function toggleShowMode(showMode = 'group')
+{
+    if(showMode == 'group')
+    {
+        $('#origin-query').removeClass('hidden');
+        $('#pivot-query').addClass('hidden');
+    }
+    else
+    {
+        $('#origin-query').addClass('hidden');
+        $('#pivot-query').removeClass('hidden');
+    }
+
+    loadCustomPivot(showMode);
+}
+
+/**
+ * 查询条件改变时重新加载自定义透视表。
+ * Reload custom pivot table when query conditions changed.
+ *
+ * @access public
+ * @param  showMode group|origin
+ * @return void
+ */
+function loadCustomPivot(showMode = 'group')
+{
+    const filterValues = getFilterValues();
+    const form = zui.createFormData();
+    if(showMode == 'origin') form.append('summary', 'notuse');
+    filterValues.forEach((val, index) => {
+        if (typeof val === 'object') {
+            for(var i in val) form.append(`filterValues[${index}][${i}]`, val[i]);
+        } else {
+            form.append(`filterValues[${index}]`, val)
+        }
+    });
+
+    const params = window.btoa('groupID=' + currentGroup + '&pivotID=' + pivotID);
+    const link   = $.createLink('pivot', 'preview', 'dimensionID=' + dimensionID + '&groupID=' + groupID + '&method=show&params=' + params);
+    postAndLoadPage(link, form, 'dtable/#table-pivot-preview:component,#conditions,pageJS/.zin-page-js,#exportData');
+}
+
+/**
+ * 导出透视表数据。
+ * Export pivot table data.
+ *
+ * @access public
+ * @return void
+ */
+function exportData()
+{
+    const $domObj = $(".table-condensed")[0];
+    exportFile($domObj);
+}
+
+/**
+ * 把日期字符串转换成日期对象。
+ * Convert date string to date object.
+ *
+ * @param  string $dateString
+ * @access public
+ * @return date
+ */
+function convertStringToDate(dateString)
+{
+    dateString = dateString.split('-');
+    return new Date(dateString[0], dateString[1] - 1, dateString[2]);
+}
+
+/**
+ * 计算两个日期之间的天数。
+ * Compute the days between two date.
+ *
+ * @param  string $date1
+ * @param  string $date1
+ * @access public
+ * @return int
+ */
+function diffDate(date1, date2)
+{
+    date1 = convertStringToDate(date1);
+    date2 = convertStringToDate(date2);
+    delta = (date2 - date1) / (1000 * 60 * 60 * 24) + 1;
+
+    weekEnds = 0;
+    for(i = 0; i < delta; i++)
+    {
+        if((weekend == 2 && date1.getDay() == 6) || date1.getDay() == 0) weekEnds ++;
+        date1 = date1.valueOf();
+        date1 += 1000 * 60 * 60 * 24;
+        date1 = new Date(date1);
+    }
+    return delta - weekEnds;
+}
+
+/**
+ * 合并单元格。
+ * Merge cell.
+ *
+ * @param  object cell
+ * @access public
+ * @return object|void
+ */
+getCellSpan = function(cell)
+{
+    const options = this.options.cellSpanOptions[cell.col.name];
+    if(options)
+    {
+        const rowSpan = cell.row.data[options.rowspan ?? 'rowspan'] ?? 1;
+        const colSpan = cell.row.data[options.colspan ?? 'colspan'] ?? 1;
+        return {rowSpan, colSpan};
+    }
+}
+}());</script></body></html>

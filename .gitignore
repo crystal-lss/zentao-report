@@ -1,0 +1,7 @@
+.workbuddy/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+authoritative_hours_old.json
+/tmp/
