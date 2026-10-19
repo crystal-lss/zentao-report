@@ -138,6 +138,20 @@
   .back-btn .arr{font-size:15px;line-height:1}
   @media print{.back-btn{display:none}}
 
+  /* ===== 回款线上化说明（04 外部系统对接） ===== */
+  .rollout{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0 0 22px;background:#FBFBFE}
+  .rollout-head{display:flex;align-items:center;gap:9px;padding:12px 18px;background:linear-gradient(90deg,var(--primary-bg),#FAFAFE);border-left:4px solid var(--primary);font-size:14px;font-weight:700;color:var(--primary)}
+  .rollout-head .ry{flex:none;background:var(--primary);color:#fff;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:6px;letter-spacing:.5px;font-family:Georgia,serif}
+  .rollout-body{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+  .roll-item{background:#fff;padding:14px 18px 15px;min-width:0}
+  .roll-cat{display:flex;align-items:flex-start;gap:8px;font-size:13px;font-weight:700;color:var(--ink);line-height:1.65}
+  .roll-idx{flex:none;width:19px;height:19px;border-radius:6px;background:var(--primary-bg);color:var(--primary);font-size:11.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .roll-tags{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0 0 27px}
+  .bank-tag{display:inline-block;padding:2px 10px;border-radius:6px;font-size:12px;font-weight:600;line-height:1.75}
+  .bank-tag.t-orange{background:var(--orange-bg);color:#C0770A;border:1px solid #F0D9AE}
+  .bank-tag.t-blue{background:var(--primary-bg);color:var(--primary);border:1px solid #D4CFF3}
+  .bank-tag.t-green{background:var(--green-bg);color:var(--green);border:1px solid #C0E6D6}
+
   @media (max-width:1020px){
     .kpis{grid-template-columns:repeat(2,1fr)}
     .layout{grid-template-columns:1fr}
@@ -146,6 +160,7 @@
     .sub-info{grid-template-columns:1fr 1fr}
     .sub-info > div{min-width:45%}
     .sub-sum{padding-left:0}
+    .rollout-body{grid-template-columns:1fr}
   }
   @media print{
     nav.toc{display:none}
@@ -259,6 +274,23 @@
 <section class="card" id="sec4">
   <div class="sec-head"><div class="sec-no">04</div><h2>外部系统对接</h2></div>
   <div class="sec-desc">共 14 个外部银行 / 平台 / 机构，覆盖银企直联、税务平台与三方支付通道。</div>
+  <div class="rollout">
+    <div class="rollout-head"><span class="ry">2026</span>掌上数心 5 家子分公司回款数据线上化</div>
+    <div class="rollout-body">
+      <div class="roll-item">
+        <div class="roll-cat"><span class="roll-idx">1</span>已对接，需接入票据直联</div>
+        <div class="roll-tags"><span class="bank-tag t-orange">农行</span><span class="bank-tag t-orange">招行</span><span class="bank-tag t-orange">兴业</span></div>
+      </div>
+      <div class="roll-item">
+        <div class="roll-cat"><span class="roll-idx">2</span>已对接，需总部签协议</div>
+        <div class="roll-tags"><span class="bank-tag t-blue">招行</span><span class="bank-tag t-blue">兴业</span></div>
+      </div>
+      <div class="roll-item">
+        <div class="roll-cat"><span class="roll-idx">3</span>全新对接银行</div>
+        <div class="roll-tags"><span class="bank-tag t-green">中行</span><span class="bank-tag t-green">华夏</span><span class="bank-tag t-green">工行</span></div>
+      </div>
+    </div>
+  </div>
   <div class="tbl-wrap"><table><thead><tr><th>外部系统</th><th>接入模式</th><th>能力</th><th>签约主体</th><th>业务应用</th><th>备注</th></tr></thead><tbody><tr><td class="cat">农业银行</td><td>前置机<br>实体KEY</td><td>银企现汇<br>承兑汇票</td><td>格力电器</td><td>售后<br>分销<br>集采<br>商用<br>网批：<br>销司-总部现汇<br>经销商-销司现汇<br>子分公司</td><td>已应用<br>20260930农行主账号流水提供机电公司认款</td></tr><tr><td class="cat">平安银行</td><td>非前置机</td><td>承兑汇票<br>银企现汇</td><td>格力电器</td><td>商用<br>集采<br>网批：<br>销司-总部汇票<br>经销商-销司汇票<br>经销商-销司现汇</td><td>已应用</td></tr><tr><td class="cat">中信银行</td><td>非前置机</td><td>银企现汇<br>承兑汇票</td><td>格力电器</td><td>网批<br>经销商-销司现汇<br>经销商-销司汇票</td><td>已应用</td></tr><tr><td class="cat">民生银行</td><td>前置机<br>实体KEY</td><td>银企现汇<br>承兑汇票</td><td>格力电器</td><td>网批<br>经销商-销司现汇<br>销司-销司现汇</td><td>已应用</td></tr><tr><td class="cat">建设银行</td><td>前置机<br>实体KEY</td><td>银企现汇</td><td>格力电器</td><td>网批<br>经销商-销司现汇</td><td>U盾已交接计算机中心机房<br>已打款验证</td></tr><tr><td class="cat">交通银行</td><td>前置机<br>实体KEY</td><td>银企现汇<br>承兑汇票</td><td>格力电器</td><td>网批<br>经销商-销司现汇<br>子分公司</td><td>已上线待打款验证<br>财务去银行柜台领取U盾<br>苏工申请服务器启用U盾<br>凯邦公司应用</td></tr><tr><td class="cat">招商银行</td><td>非前置机</td><td>银企现汇<br>承兑汇票</td><td>广东瑞格寰球<br>珠海机电公司</td><td>网批：<br>经销商-销司现汇<br>子分公司</td><td>已应用<br>20260930版本，机电公司应用现汇子账号</td></tr><tr><td class="cat">兴业银行</td><td>非前置机</td><td>银企现汇<br>承兑汇票</td><td>广东瑞格寰球</td><td>网批：<br>经销商-销司现汇</td><td>已打款验证</td></tr><tr><td class="cat">上海银行</td><td>非前置机</td><td>银企现汇</td><td>广东瑞格寰球</td><td>网批：<br>经销商-销司现汇</td><td>已打款验证</td></tr><tr><td class="cat">中国银行</td><td>前置机<br>实体KEY</td><td>银企现汇</td><td>格力电器</td><td>子分公司</td><td>测试环境已调通</td></tr><tr><td class="cat">华夏银行</td><td>非前置机</td><td>银企现汇</td><td>格力电器</td><td>子分公司</td><td>测试环境已调通</td></tr><tr><td class="cat">工商银行</td><td>非前置机</td><td>银企现汇</td><td>格力电器</td><td>子分公司</td><td>测试环境已调通</td></tr><tr><td class="cat">银联商务</td><td>接口</td><td>支付+资管</td><td>格力电器<br>格力电子商务有限公司</td><td>好收银（售后）<br>好易联钱包（售后、董店）<br>收付通（董店、售后）</td><td>已应用</td></tr><tr><td class="cat">税务和其他平台</td><td>接口</td><td>发票/账单</td><td>海南销司-银联易开票<br>税务平台-格力电器、子分公司<br>班牛-格力电器</td><td>银联商务易开票平台<br>格力税务平台（大贲）<br>班牛电商运营平台<br>三方电商平台（京东、抖音、淘宝、快手、视频号）<br>销售公司ERP(金蝶）</td><td>已应用</td></tr></tbody></table></div>
 </section>
 
