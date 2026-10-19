@@ -39,7 +39,7 @@ tr.row-overdue{background:#fef2f2!important}tr.row-overdue td:first-child{border
 <div class="charts-section"><div class="section-label">📊 可视化分析</div><div class="charts"><div class="chart-box"><h3>📋 负责人任务分布 (Top10)</h3><div class="chart-container"><canvas id="barChart"></canvas></div></div><div class="chart-box"><h3>🔄 任务状态分布</h3><div class="chart-container"><canvas id="statusPie"></canvas></div></div><div class="chart-box"><h3>🎯 优先级分布</h3><div class="chart-container"><canvas id="priPie"></canvas></div></div></div></div>
 <div class="detail-section"><div class="section-label">👥 按负责人明细（点击展开/折叠）</div>
 </div>
-<div class="footer">数据来源：禅道管理系统 | 生成时间：2026-10-14 00:00 | 仅显示未完成任务</div>
+<div class="footer">数据来源：禅道管理系统 | 生成时间：2026-10-14 | 仅显示未完成任务</div>
 <script>
 new Chart(document.getElementById('barChart'),{type:'bar',data:{labels:[],datasets:[{label:'任务数',data:[],backgroundColor:'rgba(99,102,241,.7)',borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});
 new Chart(document.getElementById('statusPie'),{type:'doughnut',data:{labels:['待处理','进行中'],datasets:[{data:[0,0],backgroundColor:['#f5576c','#43e97b'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}});
