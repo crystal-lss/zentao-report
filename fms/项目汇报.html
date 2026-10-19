@@ -98,7 +98,11 @@
   .sub-head h4::before{content:none}
   .sub-meta{margin-left:auto;font-size:12.5px;color:var(--ink-soft);white-space:nowrap}
   .sub-info{display:flex;flex-wrap:wrap;gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .sub-info > div{background:#FBFBFE;padding:11px 16px;flex:1 1 0;min-width:172px;box-sizing:border-box}
+  .sub-info > div{background:#FBFBFE;padding:11px 14px;flex:1 1 0;min-width:148px;box-sizing:border-box}
+  .sub-info > div:nth-child(1){flex-grow:1.15}
+  .sub-info > div:nth-child(3){flex-grow:1.4}
+  .sub-info > div:nth-child(5){flex-grow:1.3}
+  .sub-info > div.empty{flex-grow:.42 !important;min-width:96px}
   .sub-info .k{display:block;font-size:11.5px;color:var(--gray);letter-spacing:.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .sub-info .v{display:block;font-size:13px;color:var(--ink);margin-top:4px;line-height:1.7;word-break:break-word}
   .sub-group .tbl-wrap{margin:0;border:none;border-radius:0}
@@ -287,9 +291,9 @@
 <div class="sub-info">
   <div><span class="k">掌上数心取值来源</span><span class="v">废品交易系统回款数据</span></div>
   <div><span class="k">FMS 能力支持</span><span class="v">暂无</span></div>
-  <div><span class="k">其他回款方式</span><span class="v"><span class="mut">—</span></span></div>
-  <div><span class="k">FMS 系统权限</span><span class="v"><span class="mut">—</span></span></div>
-  <div><span class="k">备注</span><span class="v"><span class="mut">—</span></span></div>
+  <div class="empty"><span class="k">其他回款方式</span><span class="v mut">—</span></div>
+  <div class="empty"><span class="k">FMS 系统权限</span><span class="v mut">—</span></div>
+  <div class="empty"><span class="k">备注</span><span class="v mut">—</span></div>
 </div>
 <div class="tbl-wrap"><table><thead><tr><th>公司名称</th><th>银行收款信息</th><th>银企直联进展</th></tr></thead><tbody><tr><td class="cat">湖南绿色再生资源有限公司</td><td>交通银行</td><td><span class="bdg b-p2">无需开通银企直联</span><div class="pg-note">取废品交易系统数据</div></td></tr><tr><td class="cat">天津绿色再生资源利用有限公司</td><td>财务公司</td><td><span class="mut">—</span></td></tr><tr><td class="cat">天津格力再生资源回收有限公司</td><td>财务公司</td><td><span class="mut">—</span></td></tr><tr><td class="cat">郑州格力绿色再生资源有限公司</td><td>财务公司</td><td><span class="mut">—</span></td></tr><tr><td class="cat">格力绿色再生资源临沂有限公司</td><td>财务公司</td><td><span class="mut">—</span></td></tr><tr><td class="cat">芜湖绿色再生资源有限公司</td><td>农行银行</td><td><span class="mut">—</span></td></tr><tr><td class="cat">石家庄绿色再生资源有限公司</td><td>招商银行</td><td><span class="mut">—</span></td></tr></tbody></table></div>
 </div><div class="sub-group">
@@ -317,9 +321,9 @@
 <div class="sub-info">
   <div><span class="k">掌上数心取值来源</span><span class="v">珠海电工：OMS系统回款数据<br>南京华新：notes系统+FMS收款单数据</span></div>
   <div><span class="k">FMS 能力支持</span><span class="v">南京华新外币收入：提供收付款单维护功能</span></div>
-  <div><span class="k">其他回款方式</span><span class="v"><span class="mut">—</span></span></div>
+  <div class="empty"><span class="k">其他回款方式</span><span class="v mut">—</span></div>
   <div><span class="k">FMS 系统权限</span><span class="v">已培训，申请中</span></div>
-  <div><span class="k">备注</span><span class="v"><span class="mut">—</span></span></div>
+  <div class="empty"><span class="k">备注</span><span class="v mut">—</span></div>
 </div>
 <div class="tbl-wrap"><table><thead><tr><th>公司名称</th><th>银行收款信息</th><th>银企直联进展</th></tr></thead><tbody><tr><td class="cat">南京华新有色金属有限公司</td><td>中国银行</td><td><span class="bdg b-p2">无需开通银企直联</span><div class="pg-note">在FMS系统手工录入收款单（美元回款）</div></td></tr><tr><td class="cat">南京华新有色金属有限公司</td><td>农业银行</td><td><span class="mut">—</span></td></tr><tr><td class="cat">南京华新有色金属有限公司</td><td>建设银行</td><td><span class="mut">—</span></td></tr><tr><td class="cat">南京华新有色金属有限公司</td><td>中信银行</td><td><span class="mut">—</span></td></tr><tr><td class="cat">南京华新有色金属有限公司</td><td>渣打银行</td><td><span class="mut">—</span></td></tr></tbody></table></div>
 </div><div class="sub-group">
@@ -332,8 +336,8 @@
 <div class="sub-info">
   <div><span class="k">掌上数心取值来源</span><span class="v">和CRM对接获取回款数据</span></div>
   <div><span class="k">FMS 能力支持</span><span class="v">提供银行流水数据给CRM</span></div>
-  <div><span class="k">其他回款方式</span><span class="v"><span class="mut">—</span></span></div>
-  <div><span class="k">FMS 系统权限</span><span class="v"><span class="mut">—</span></span></div>
+  <div class="empty"><span class="k">其他回款方式</span><span class="v mut">—</span></div>
+  <div class="empty"><span class="k">FMS 系统权限</span><span class="v mut">—</span></div>
   <div><span class="k">备注</span><span class="v">已收集账号信息，农行统一提交办理<br>流水数据提供给CRM进行认款</span></div>
 </div>
 <div class="tbl-wrap"><table><thead><tr><th>公司名称</th><th>银行收款信息</th><th>银企直联进展</th></tr></thead><tbody><tr><td class="cat">珠海格力智能装备有限公司</td><td>农业银行</td><td><span class="bdg b-p0">授权流程未开始</span></td></tr><tr><td class="cat">珠海格力智能装备有限公司</td><td>农业银行</td><td><span class="bdg b-p0">授权流程未开始</span></td></tr><tr><td class="cat">珠海格力智能装备有限公司</td><td>财务公司</td><td><span class="bdg b-p0">授权流程未开始</span></td></tr><tr><td class="cat">珠海格力数控机床有限公司</td><td>农业银行</td><td><span class="bdg b-p0">授权流程未开始</span></td></tr><tr><td class="cat">珠海格力数控机床有限公司</td><td>交通银行</td><td><span class="bdg b-p0">授权流程未开始</span></td></tr><tr><td class="cat">珠海格力机器人有限公司</td><td>招商银行</td><td><span class="bdg b-p0">授权流程未开始</span></td></tr><tr><td class="cat">上海格力汽车科技有限公司</td><td>招商银行</td><td><span class="bdg b-p0">授权流程未开始</span></td></tr><tr><td class="cat">格力智能装备（武汉）有限公司</td><td>农业银行</td><td><span class="bdg b-p0">授权流程未开始</span></td></tr><tr><td class="cat">格力智能装备（武汉）有限公司</td><td>招商银行</td><td><span class="bdg b-p0">授权流程未开始</span></td></tr><tr><td class="cat">广东国创智能科技有限公司</td><td>农业银行</td><td><span class="bdg b-p0">授权流程未开始</span></td></tr></tbody></table></div>
